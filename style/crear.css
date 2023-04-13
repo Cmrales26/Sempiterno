@@ -1,0 +1,28 @@
+.row2{
+    overflow: auto;
+    height: 500px;
+    width:57.4%;
+    margin-right: 0%;
+}.row1{
+    border-radius: 0px 20px 20px 0px;
+}
+.row2::-webkit-scrollbar {
+    background-color: #4791e05d;
+    width:10px;
+}
+
+.row2::-webkit-scrollbar-thumb{
+    cursor: pointer;
+    background-color: #CBAC5A;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Crear{
+    background-color: #1A3467;
+    color: white;
+    padding: 10% 20%;
+    transition: all 0.3s ease-in-out;
+}
