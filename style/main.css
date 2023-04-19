@@ -7,6 +7,20 @@
 body{
     background-color: #F5F5F5;
 }
+
+body::-webkit-scrollbar{
+    background-color: transparent;
+    width:10px;
+}
+
+body::-webkit-scrollbar-thumb{
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    cursor: pointer;
+    background-color: #CBAC5A;
+    min-height: 2px;
+}
+
 #contenedor-navbar{
     position: fixed;
     z-index: 1;
@@ -148,4 +162,7 @@ span {
 .Tematica > h3, .fecha{
     color: #1A3467;
 }
-
+.filtro{
+    width: 20%;
+    margin-bottom: 2rem;
+}

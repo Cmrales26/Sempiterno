@@ -46,7 +46,7 @@
                 </div>
                 <div class="botones">
                     <div class="iniciar">
-                        <input type="button" value="Ingresar" class="ingresar">
+                        <input type="button" value="Ingresar" class="ingresar" onclick="{iniciar()}">
                     </div>
                     <div class="invitado">
                         <input type="button" value="Entrar Como invitado" class="e-invitado">
@@ -58,6 +58,11 @@
             </div>
         </div>
     </section>
+    <script>
+        const iniciar = () =>{
+            window.location.href = "./Interfaces/Foros.html";
+        }
+    </script>
 </body>
 
 </html>
