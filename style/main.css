@@ -177,7 +177,8 @@ span {
 .main {
     display: flex;
 }
-.nuevoforo-btn{
+
+.nuevoforo-btn, .nuevapub-btn, .label-fecha-cierre-mobile {
     display: none;
 }
 
@@ -357,7 +358,8 @@ span {
 .label-asunto,
 .label-fecha-cierre,
 .label-hora-cierre,
-.label-descripcion {
+.label-descripcion,
+.label-fecha-cierre-mobile {
     color: #1A3467;
     font-size: 20px;
     font-weight: 500;
@@ -550,7 +552,7 @@ span {
         display: none;
     }
 
-    .nuevoforo-btn{
+    .nuevoforo-btn {
         display: block;
     }
 
@@ -562,27 +564,60 @@ span {
         padding: 1rem;
         text-align: justify;
     }
-    .vermas-foro{
+
+    .vermas-foro {
         display: none;
     }
-    .info-foro{
+
+    .info-foro {
         width: 100%;
     }
-    .nuevoforo-btn, .nuevapub-btn{
+
+    .nuevoforo-btn,
+    .nuevapub-btn {
         color: #1A3467;
         font-size: 20px;
     }
-    .filtro-foro{
+
+    .filtro-foro {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    .form-select-foro{
+
+    .form-select-foro {
         width: 50%;
     }
-    .sectionactive{
+
+    .sectionactive {
         color: #CBAC5A;
+    }
+
+    .contenedor-escribir-foro,
+    .contenedor-escribir-publicacion {
+        padding: 1rem;
+    }
+    .label-fecha-cierre-mobile{
+        display: block;
+    }
+    .label-fecha-cierre{
+        display: none;
+    }
+    .fecha-escribir-foro{
+        display: flex;
+        justify-content: space-between;
+    }
+    #Fecha_cierre,
+    #Hora_cierre {
+        width: 45% !important;
+        gap: 20px;
+        color: #1A3467;
+        margin-left: 0;
+    }
+    .agregar-imagen-pub label{
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -590,10 +625,13 @@ span {
     .logo {
         width: 50%;
     }
-    .like-publicacion, .comentar-publicacion{
+
+    .like-publicacion,
+    .comentar-publicacion {
         font-size: 18px;
         color: #1A3467;
     }
+
     .contenido-publicacion-imagen img {
         width: 100%;
     }
