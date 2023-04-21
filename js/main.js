@@ -40,6 +40,8 @@ const cargarPublicaiones = () => {
     document.title = "Publicaciones Sempiterno"; // Se establece el titulo de la pagina
     foro.classList.add("FORO-OFF");// se apagan los foros
     publicaciones.classList.remove("PUBLICACIONES-OFF"); // Se activan las publicaciones
+    editarPerfil.classList.add("EDITAR-PERFIL-OFF"); // Se apagan el editar perfil
+    cambiarContrasena.classList.add("CAMBIAR-CONTRASENA-OFF"); // Se apaga el cambiar contraseña
     escribirForo.classList.add("ESCRIBIR-FORO-OFF"); // se agrega la clase para evitar su vista
     publicarPub.classList.add("ESCRIBIR-PUBLICACION-OFF");// se agrega la clase para evitar su vista
 }
