@@ -1,101 +1,123 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Poppins:wght@400;700&display=swap');
 
-*{
+* {
     border: 0;
     padding: 0;
 }
-body{
+
+body {
     background-color: #1A3467;
 }
-.container{
+
+.container {
     font-family: 'poppins';
     display: flex;
     flex-wrap: wrap;
     background: white;
     height: 500px;
-    border-radius:10px;
+    border-radius: 10px;
     /* margin-top: 3.5%; */
     justify-content: space-between;
 }
-.row{
+
+.row {
     height: 500px;
     max-height: 500px;
 }
-.row1{
+
+.row1 {
     width: 45%;
     background-color: #f2f6ff;
     padding: 5%;
     border-radius: 20px 0px 0px 20px;
 }
-.row2{
+
+.row2 {
     padding: 7% 5%;
     width: 55%;
 }
-.imagen{
+
+.imagen {
     display: flex;
     align-items: center;
     width: fit-content;
 }
-.imagen img{
+
+.imagen img {
     width: 100%;
     margin: 0 auto;
 }
 
-.form-label{
+.form-label {
     color: #1A3467;
 }
-.form-control{
+
+.form-control {
     padding: 2%;
     border-radius: 50px;
 }
-.id{
+
+.id {
     padding-left: 50px;
     background: url("../img/index/id-card-regular.svg") no-repeat left;
     background-size: 25px;
-    background-position-x:20px;
+    background-position-x: 20px;
 }
-.pass{
+
+.pass {
     padding-left: 50px;
     background: url("../img/index/lock-solid.svg") no-repeat left;
     background-size: 20px;
-    background-position-x:20px;
+    background-position-x: 20px;
 }
-.olvide-pass{
+
+.olvide-pass {
     text-align: right;
     font-weight: 500;
     height: fit-content;
 }
-.olvide-pass a{
+
+.olvide-pass a {
     color: #4791E0;
 }
-.botones{
+
+.botones {
     margin-top: 5%;
     display: flex;
     gap: 8%;
 }
-input[type="button"]{
+
+input[type="button"] {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.e-invitado{
+
+.e-invitado {
     padding: 5%;
     background-color: #CBAC5A;
     color: white;
     transition: all 0.3s ease;
 }
-.ingresar, .Crear{
+
+.ingresar,
+.Crear {
     background-color: #1A3467;
     color: white;
     padding: 15% 20%;
     transition: all 0.3s ease-in-out;
 }
-.e-invitado:hover, .ingresar:hover, .Crear:hover{
+
+.e-invitado:hover,
+.ingresar:hover,
+.Crear:hover {
     scale: 1.05;
 }
-.crear-cuenta{
+
+.crear-cuenta {
     margin-top: 10%;
     text-align: center;
 }
-.crear-cuenta a{
+
+.crear-cuenta a {
     color: #4791E0;
 }
