@@ -84,7 +84,7 @@ document.querySelector(".publicaciones").addEventListener("click", (event) => {
 
 //! OPTENER LOS VALORES DEL ul - li
 
-const perfil_menu = document.querySelectorAll("#dropdown-menu li"); // Optenemos del Dropdown Menu todos los hijos
+const perfil_menu = document.querySelectorAll("#dropdown-perfil li"); // Optenemos del Dropdown Menu todos los hijos
 
 let tab = []; // Creamos un array vacio en el que se almacenaran los elementos "li"
 var index; // Creamos una variable auxilixar indice en la que se guardará el estado del array

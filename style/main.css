@@ -462,3 +462,116 @@ span {
     border-radius: 10px;
     width: 100%;
 }
+
+/* ! Visual Queryes responsive */
+@media screen and (max-width: 1024px) {
+    .filtro-foro {
+        width: 50%;
+        margin-bottom: 2rem;
+    }
+
+    .btn-iniciar>button {
+        font-size: 16px;
+    }
+}
+
+/* Empieza la vista mobile */
+@media screen and (max-width: 900px) {
+    #contenedor-navbar {
+        position: fixed;
+        width: 100%;
+    }
+
+    .logo {
+        width: 30%;
+    }
+
+    .logo img {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    #contenedor-navbar {
+        position: fixed;
+        z-index: 2;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+
+    #contenedor-sidebar {
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        max-width: 100%;
+        /* border: 1px solid red; */
+        height: initial;
+        margin-top: 5rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+
+    .secciones {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .secciones span {
+        display: none;
+    }
+
+    .separador-secciones {
+        display: none;
+    }
+
+    .grupos {
+        display: none;
+    }
+
+    .publicaciones {
+        margin-top: 0 !important;
+    }
+
+    .icon-notificacion {
+        font-size: 25px;
+    }
+
+    .dropdown-toggle {
+        font-size: 25px;
+    }
+
+    .btn-iniciar {
+        display: none;
+    }
+
+    #contenido-principal {
+        margin-left: 0;
+        margin-top: 15rem;
+        width: 100%;
+        height: fit-content;
+        padding: 1rem;
+        text-align: justify;
+    }
+    .vermas-foro{
+        display: none;
+    }
+    .info-foro{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .logo {
+        width: 50%;
+    }
+    .like-publicacion, .comentar-publicacion{
+        font-size: 18px;
+        color: #1A3467;
+    }
+    .contenido-publicacion-imagen img {
+        width: 100%;
+    }
+}
