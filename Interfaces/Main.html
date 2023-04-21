@@ -49,15 +49,15 @@
     <div class="main">
         <section id="contenedor-sidebar">
             <div class="btn-iniciar">
-                <button id="iniciarnuevoforo">Iniciar Nuevo Foro</button>
-                <button id="iniciarnuevapublicacion">Crear Nueva Publicación</button>
+                <button id="iniciarnuevoforo" onclick="escribirnuevoforo()">Iniciar Nuevo Foro</button>
+                <button id="iniciarnuevapublicacion" onclick="escribirnuevapublicacion()">Crear Nueva Publicación</button>
             </div>
             <div class="secciones">
                 <div class="foros">
                     <i class="fa-solid fa-comments"></i><span id="under_foro">FOROS</span>
                 </div>
                 <div class="publicaciones mt-4">
-                    <i class="fa-solid fa-book-bible"></i> <span id="under_pub">PUBLICACIONES</span>
+                    <i class="fa-solid fa-book-bible "></i> <span id="under_pub">PUBLICACIONES</span>
                 </div>
                 <hr class="separador-secciones">
                 <div class="titulo">
@@ -79,6 +79,9 @@
                         <option selected>Más Reciente</option>
                         <option value="1">Más Antiguo</option>
                     </select>
+                    <div class="nuevoforo-btn" onclick="escribirnuevoforo()">
+                        <i class="fa-solid fa-plus"></i> Nuevo Foro
+                    </div>
                 </div>
                 <div class="card-foro">
                     <div class="info-foro">
@@ -168,6 +171,11 @@
             </section>
 
             <section id="PUBLICACIONES">
+                <div class="filtro-foro">
+                    <div class="nuevapub-btn" onclick=" escribirnuevapublicacion()">
+                        <i class="fa-solid fa-plus"></i> Nueva Publicación
+                    </div>
+                </div>
                 <div class="card-publicaciones">
                     <div class="info-publicacion">
                         <div class="autor-publicacion">

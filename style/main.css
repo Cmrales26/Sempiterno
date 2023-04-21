@@ -177,6 +177,9 @@ span {
 .main {
     display: flex;
 }
+.nuevoforo-btn{
+    display: none;
+}
 
 /* ! DISEÑO PARA EL CONTENIDO DEL FORO */
 .FORO-OFF {
@@ -547,6 +550,10 @@ span {
         display: none;
     }
 
+    .nuevoforo-btn{
+        display: block;
+    }
+
     #contenido-principal {
         margin-left: 0;
         margin-top: 15rem;
@@ -560,6 +567,22 @@ span {
     }
     .info-foro{
         width: 100%;
+    }
+    .nuevoforo-btn, .nuevapub-btn{
+        color: #1A3467;
+        font-size: 20px;
+    }
+    .filtro-foro{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .form-select-foro{
+        width: 50%;
+    }
+    .sectionactive{
+        color: #CBAC5A;
     }
 }
 

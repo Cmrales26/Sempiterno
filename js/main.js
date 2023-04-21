@@ -9,6 +9,10 @@ const publicarPub = document.getElementById("ESCRIBIR-PUBLICACION");
 // Seleccion de las descoraciones de las secciones
 const under_foro = document.getElementById("under_foro");
 const under_pub = document.getElementById("under_pub");
+// Sleccion de los inconos para su modificación en mobile
+const foro_icon = document.querySelector(".foros")
+const pub_icon = document.querySelector(".publicaciones")
+const grupo_icon = document.querySelector(".titulo")
 
 // Selecionamos los Botones de iniciar foro  y publicaciones
 const iniciar_foro = document.getElementById("iniciarnuevoforo");
@@ -31,6 +35,9 @@ const cargarForo = () => {
     cambiarContrasena.classList.add("CAMBIAR-CONTRASENA-OFF"); // Se apaga el cambiar contraseña
     escribirForo.classList.add("ESCRIBIR-FORO-OFF"); // se agrega la clase para evitar su vista
     publicarPub.classList.add("ESCRIBIR-PUBLICACION-OFF");// se agrega la clase para evitar su vista
+    foro_icon.classList.add("sectionactive"); // Le da un color a el lugar donde está hubicado
+    pub_icon.classList.remove("sectionactive"); // Remueve la clase
+    grupo_icon.classList.remove("sectionactive"); // Remueve la clase
 }
 const cargarPublicaiones = () => {
     iniciar_pub.classList.remove("iniciarnuevapublicacion-off"); // Se agrega el boton crear publicacion
@@ -44,6 +51,9 @@ const cargarPublicaiones = () => {
     cambiarContrasena.classList.add("CAMBIAR-CONTRASENA-OFF"); // Se apaga el cambiar contraseña
     escribirForo.classList.add("ESCRIBIR-FORO-OFF"); // se agrega la clase para evitar su vista
     publicarPub.classList.add("ESCRIBIR-PUBLICACION-OFF");// se agrega la clase para evitar su vista
+    foro_icon.classList.remove("sectionactive"); // Remueve la clase
+    pub_icon.classList.add("sectionactive"); // Le da un color a el lugar donde está hubicado
+    grupo_icon.classList.remove("sectionactive"); // Remueve la clase
 }
 const cargarEditarPerfil = () => {
     foro.classList.add("FORO-OFF"); // se agrega la clase foro off ocultarla
@@ -110,18 +120,19 @@ for (var i = 0; i < perfil_menu.length; i++) {
 }
 
 // Escribir un nuevo foro
-iniciar_foro.addEventListener("click", (event) => {
+const escribirnuevoforo = () =>{
     document.title = "Nuevo foro"// Se agrega el nuevo titulo
     escribirForo.classList.remove("ESCRIBIR-FORO-OFF"); // se remueve la clase para ser mostrado
     foro.classList.add("FORO-OFF");
-})
+}
 
-//Escribr una nueva publicación
-iniciar_pub.addEventListener("click", (event) => {
+
+//Escribr una nueva publicación 
+const escribirnuevapublicacion = () =>{
     document.title = "Nuevo Publicación" // Se agrega el nuevo titulo
     publicarPub.classList.remove("ESCRIBIR-PUBLICACION-OFF"); // se remueve la clase para ser mostrado
     publicaciones.classList.add("PUBLICACIONES-OFF");
-})
+}
 
 // Preview de la imagen a cargar
 const showPreview = (event) => {
