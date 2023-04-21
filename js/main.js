@@ -115,6 +115,8 @@ for (var i = 0; i < perfil_menu.length; i++) {
             cargarCambiarContrasena(); // Cargar la funcion cambiar contraseña
         } else if (this.innerHTML === "Modo Oscuro") { // En caso de dar clic en modo oscuro  
             alert("Esta función aun no se encuentra habilitada"); //? Pronto la funcion xd
+        }else if (this.innerHTML === "Cerrar Sesión"){ // En caso de dar clic en cerrar sesion
+            cerrarsesion();
         }
     }
 }
@@ -132,6 +134,9 @@ const escribirnuevapublicacion = () =>{
     document.title = "Nuevo Publicación" // Se agrega el nuevo titulo
     publicarPub.classList.remove("ESCRIBIR-PUBLICACION-OFF"); // se remueve la clase para ser mostrado
     publicaciones.classList.add("PUBLICACIONES-OFF");
+}
+const cerrarsesion = () =>{
+    window.location.href = "../index.html";
 }
 
 // Preview de la imagen a cargar
