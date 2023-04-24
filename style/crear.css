@@ -26,3 +26,13 @@
     padding: 10% 20%;
     transition: all 0.3s ease-in-out;
 }
+@media screen and (max-width: 550px) {
+    .row1 {
+        display: none;
+    }
+    .row2 {
+        margin-top: 2rem;
+        width: 100%;
+        height: fit-content;
+    }
+}

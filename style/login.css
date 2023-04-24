@@ -16,7 +16,6 @@ body {
     background: white;
     height: 500px;
     border-radius: 10px;
-    /* margin-top: 3.5%; */
     justify-content: space-between;
 }
 
@@ -120,4 +119,91 @@ input[type="button"] {
 
 .crear-cuenta a {
     color: #4791E0;
+}
+
+/* ! Media Querys */
+@media screen and (max-width: 768px) {
+    * {
+        font-size: 12px;
+    }
+
+    .container {
+        height: auto;
+    }
+
+    .logo {
+        /* border: 1px solid red; */
+        height: fit-content;
+    }
+
+    .imagen {
+        display: block;
+    }
+
+    .row {
+        height: 350px;
+        max-height: 350px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    * {
+        background-color: #F5F5F5;
+    }
+
+    .container {
+        margin-top: 1rem;
+        flex-direction: column;
+        position: absolute !important;
+        transform: translate(0) !important;
+        top: 0 !important;
+        left: 0 !important;
+        background-color: #F5F5F5;
+    }
+
+    .logo {
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .imagen {
+        width: 100%;
+    }
+
+    .row {
+        height: fit-content;
+        max-height: fit-content;
+    }
+
+    .row1 {
+        width: 100%;
+        background-color: #F5F5F5;
+    }
+
+    .row2 {
+        width: 100%;
+    }
+
+    .row>* {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .botones {
+        justify-content: center;
+    }
+
+    .e-invitado,
+    .ingresar,
+    .Crear {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .botones {
+        gap: 35px;
+    }
 }
