@@ -154,3 +154,15 @@ const showPreview = (event) => {
         preview.style.display = "block"; // a la etiqueta img le asigno un display block
     }
 }
+
+function obtenerIdDeClicPorClase(className) {
+    var elementos = document.getElementsByClassName(className);
+    for (var i = 0; i < elementos.length; i++) {
+      elementos[i].addEventListener('click', function() {
+        alert(this.id)
+        // console.log(this.id);
+      });
+    }
+  }
+
+obtenerIdDeClicPorClase("card-foro")
