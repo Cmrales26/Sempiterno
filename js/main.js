@@ -115,14 +115,14 @@ for (var i = 0; i < perfil_menu.length; i++) {
             cargarCambiarContrasena(); // Cargar la funcion cambiar contraseña
         } else if (this.innerHTML === "Modo Oscuro") { // En caso de dar clic en modo oscuro  
             alert("Esta función aun no se encuentra habilitada"); //? Pronto la funcion xd
-        }else if (this.innerHTML === "Cerrar Sesión"){ // En caso de dar clic en cerrar sesion
+        } else if (this.innerHTML === "Cerrar Sesión") { // En caso de dar clic en cerrar sesion
             cerrarsesion();
         }
     }
 }
 
 // Escribir un nuevo foro
-const escribirnuevoforo = () =>{
+const escribirnuevoforo = () => {
     document.title = "Nuevo foro"// Se agrega el nuevo titulo
     escribirForo.classList.remove("ESCRIBIR-FORO-OFF"); // se remueve la clase para ser mostrado
     foro.classList.add("FORO-OFF");
@@ -130,12 +130,12 @@ const escribirnuevoforo = () =>{
 
 
 //Escribr una nueva publicación 
-const escribirnuevapublicacion = () =>{
+const escribirnuevapublicacion = () => {
     document.title = "Nuevo Publicación" // Se agrega el nuevo titulo
     publicarPub.classList.remove("ESCRIBIR-PUBLICACION-OFF"); // se remueve la clase para ser mostrado
     publicaciones.classList.add("PUBLICACIONES-OFF");
 }
-const cerrarsesion = () =>{
+const cerrarsesion = () => {
     window.location.href = "../index.html";
 }
 
@@ -158,11 +158,8 @@ const showPreview = (event) => {
 function obtenerIdDeClicPorClase(className) {
     var elementos = document.getElementsByClassName(className);
     for (var i = 0; i < elementos.length; i++) {
-      elementos[i].addEventListener('click', function() {
-        alert(this.id)
-        // console.log(this.id);
-      });
+        elementos[i].addEventListener('click', function () {
+            return this.id
+        });
     }
-  }
-
-obtenerIdDeClicPorClase("card-foro")
+}

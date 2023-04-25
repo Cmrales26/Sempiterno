@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="olvide-pass">
-                    <a href="#">Olvidé mi contraseña</a>
+                    <p>Olvidé mi Contraseña</p>
                 </div>
                 <div class="botones">
                     <div class="iniciar">
@@ -58,11 +58,56 @@
             </div>
         </div>
     </section>
-    <script>
-        const iniciar = () =>{
-            window.location.href = "./Interfaces/Main.html";
-        }
-    </script>
+
+    <section id="OlvidarContraseña">
+        <div class="container-recuperar position-absolute top-50 left-50 start-50 translate-middle">
+            <div class="contexto">
+                <div class="volverlogin">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <h3>Recuperar Contraseña</h3>
+                <p>Ingrese su número de teléfono, recibirá un código de 4 dígitos para verificar su identidad y
+                    restablecer
+                    su contraseña. Siga las instrucciones en pantalla para completar el proceso. Esto asegura que solo
+                    usted
+                    tenga acceso a su cuenta.</p>
+            </div>
+            <div class="IngresarTel">
+                <h6>Ingrese su número de teléfono</h6>
+                <form onsubmit="eviarcodigo(event)">
+                    <input type="number" class="form-control" id="TelCode" placeholder="Celular" required>
+                    <input type="submit" value="Enviar Código" class="s-code">
+                </form>
+            </div>
+        </div>
+    </section>
+    <section id="Ingresar-Codigo">
+        <div class="container-recuperar position-absolute top-50 left-50 start-50 translate-middle">
+            <div class="volverlogin volverlogin1">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="codigo">
+                <form  onsubmit="onSubmit(event)">
+                    <fieldset class='number-code'>
+                        <legend>INGRESE EL CÓDIGO DE SEGURIDAD </legend>
+                        <p>Usted ha recibido un mensaje de texto con el código de verificación</p>
+                        <div>
+                            <input type="number" name='code' class='code-input' required /> - 
+                            <input type="number" name='code' class='code-input' required /> - 
+                            <input type="number" name='code' class='code-input' required /> - 
+                            <input type="number" name='code' class='code-input' required />
+                        </div>
+                    </fieldset>
+                    <div class="botoncoddigo">
+                        <input type="submit" value="Enviar Código" id="Enviar_codigo">
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <script src="./js/login.js"></script>
 </body>
 
 </html>
