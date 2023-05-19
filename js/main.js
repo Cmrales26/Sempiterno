@@ -136,7 +136,7 @@ const escribirnuevapublicacion = () => {
     publicaciones.classList.add("PUBLICACIONES-OFF");
 }
 const cerrarsesion = () => {
-    window.location.href = "../index.html";
+    window.location.href = "../index.php";
 }
 
 // Preview de la imagen a cargar

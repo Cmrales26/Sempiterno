@@ -1,6 +1,3 @@
-const iniciar = () => {
-    window.location.href = "./Interfaces/Main.html";
-}
 // ... Funciona para expander iterables a elementos individuales.
 const NumCode = [...document.querySelectorAll('input.code-input')] // GENERA UN ARRAY PARA CADA UNA DE LAS POSICIONES DE EL ELEMENTO
 
