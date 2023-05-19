@@ -16,6 +16,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style/login.css">
     <link rel="shortcut icon" href="./img/Imagotipo.svg" type="image/x-icon">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Iniciar Sesión</title>
 </head>
 
@@ -31,30 +32,38 @@
                 </div>
             </div>
             <div class="row row2">
-                <div class="formulario">
-                    <div class="mb-3">
-                        <label for="indentificacion" class="form-label">Identificación</label>
-                        <input type="number" class="form-control id" id="indentificacion">
+                <?php
+                include "./src/Conexion.php";
+                include "./src/iniciarSesion.php";
+                ?>
+
+                <form method="post" action="index.php">
+                    <div class="formulario">
+                        <div class="mb-3">
+                            <label for="indentificacion" class="form-label">Identificación</label>
+                            <input type="number" class="form-control id" id="identificacion" name="Identificacion"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Contraseña" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control pass" id="Contraseña" name="Contraseña" required>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="Contraseña" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control pass" id="Contraseña">
+                    <div class="olvide-pass">
+                        <p>Olvidé mi Contraseña</p>
                     </div>
-                </div>
-                <div class="olvide-pass">
-                    <p>Olvidé mi Contraseña</p>
-                </div>
-                <div class="botones">
-                    <div class="iniciar">
-                        <input type="button" value="Ingresar" class="ingresar" onclick="{iniciar()}">
+                    <div class="botones">
+                        <div class="iniciar">
+                            <input type="submit" value="Ingresar" class="ingresar" name="ingresar">
+                        </div>
+                        <div class="invitado">
+                            <input type="button" value="Entrar Como invitado" class="e-invitado">
+                        </div>
                     </div>
-                    <div class="invitado">
-                        <input type="button" value="Entrar Como invitado" class="e-invitado">
+                    <div class="crear-cuenta">
+                        <p>¿No tienes una cuenta? <a href="./Interfaces/crearcuenta.php">Crea Una</a></p>
                     </div>
-                </div>
-                <div class="crear-cuenta">
-                    <p>¿No tienes una cuenta? <a href="./Interfaces/crearcuenta.html">Crea Una</a></p>
-                </div>
+                </form>
             </div>
         </div>
     </section>
@@ -87,14 +96,14 @@
                 <i class="fa-solid fa-arrow-left"></i>
             </div>
             <div class="codigo">
-                <form  onsubmit="onSubmit(event)">
+                <form onsubmit="onSubmit(event)">
                     <fieldset class='number-code'>
                         <legend>INGRESE EL CÓDIGO DE SEGURIDAD </legend>
                         <p>Usted ha recibido un mensaje de texto con el código de verificación</p>
                         <div>
-                            <input type="number" name='code' class='code-input' required /> - 
-                            <input type="number" name='code' class='code-input' required /> - 
-                            <input type="number" name='code' class='code-input' required /> - 
+                            <input type="number" name='code' class='code-input' required /> -
+                            <input type="number" name='code' class='code-input' required /> -
+                            <input type="number" name='code' class='code-input' required /> -
                             <input type="number" name='code' class='code-input' required />
                         </div>
                     </fieldset>
@@ -103,7 +112,7 @@
                     </div>
                 </form>
             </div>
-            
+
         </div>
     </section>
 

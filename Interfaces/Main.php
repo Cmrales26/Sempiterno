@@ -17,10 +17,27 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style/main.css">
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Document</title>
 </head>
 
 <body>
+    <?php
+    session_start();
+    $usuario = $_SESSION['Identificación'];
+
+    echo "<script> 
+    Swal.fire({
+        icon:'success',
+        title: '✌️',
+        text: 'Bienvenido $usuario',
+        timer: 1500,
+        showConfirmButton: false
+      });
+    </script>";
+    ?>
+
+
     <section id="contenedor-navbar">
         <nav>
             <div class="logo">
@@ -50,7 +67,8 @@
         <section id="contenedor-sidebar">
             <div class="btn-iniciar">
                 <button id="iniciarnuevoforo" onclick="escribirnuevoforo()">Iniciar Nuevo Foro</button>
-                <button id="iniciarnuevapublicacion" onclick="escribirnuevapublicacion()">Crear Nueva Publicación</button>
+                <button id="iniciarnuevapublicacion" onclick="escribirnuevapublicacion()">Crear Nueva
+                    Publicación</button>
             </div>
             <div class="secciones">
                 <div class="foros">
@@ -61,7 +79,7 @@
                 </div>
                 <hr class="separador-secciones">
                 <div class="titulo">
-                    <i class="fa-solid fa-people-roof"></i> <span id="under_grup">GRUPOS</span> 
+                    <i class="fa-solid fa-people-roof"></i> <span id="under_grup">GRUPOS</span>
                 </div>
                 <div class="grupos">
                     <a href=""> <i class="fa-solid fa-circle g1"></i> Danza</a><br>
