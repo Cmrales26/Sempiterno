@@ -107,31 +107,39 @@
         <div id="contenido-principal">
             <section id="FORO">
                 <div class="filtro-foro">
-                    <select class="form-select form-select-foro" aria-label="Default select example">
+                    <!-- <select class="form-select form-select-foro" aria-label="Default select example" name= "Opcion">
                         <option selected>Más Reciente</option>
                         <option value="1">Más Antiguo</option>
-                    </select>
+                    </select> -->
+
+
+                    <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtro
+                    </button>
+                    <ul class="dropdown-menu" id="dropdown-perfil">
+                        <li class="dropdown-item">
+                            <form method="post" action="Main.php" id="MasReciente">
+                                <input type="submit" name="MasReciente" value="Mas Reciente" class="MasReciente">
+                            </form>
+                        </li>
+                        <li class="dropdown-item">
+                            <form method="post" action="Main.php" id="MasAntiguo">
+                                <input type="submit" name="MasAntiguo" value="Mas Antiguo" class="MasAntiguo">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
                     <div class="nuevoforo-btn" onclick="escribirnuevoforo()">
                         <i class="fa-solid fa-plus"></i> Nuevo Foro
                     </div>
                 </div>
-                <div class="card-foro" id="1">
-                    <div class="info-foro">
-                        <div class="Tematica-foro">
-                            <h3>Diana Vidal</h3>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel nam quia modi veritatis,
-                                deleniti in illo, at fuga, asperiores qui assumenda praesentium. Eaque, aliquam
-                                veritatis! Vero voluptatem ipsam hic labore?</p>
-                        </div>
-                        <hr>
-                        <div class="fecha-foro">
-                            18/05/2023 - 31/05/2023
-                        </div>
-                    </div>
-                    <div class="vermas-foro">
-                        <a href="#"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
-                    </div>
-                </div>
+                <?php
+                    include("../src/PublicacionesyForos.php");
+                    obtenerForo()
+                ?>
+                
+
             </section>
 
             <section id="PUBLICACIONES">
@@ -272,7 +280,7 @@
                 </div>
                 <div class = "MisPublicaciones">
                     <h1>Mis Publicaciones</h1>
-                </divc>
+                </div>
             </section>
 
             <section id="ESCRIBIR-FORO">
@@ -281,24 +289,25 @@
                         <i class="fa-solid fa-arrow-left"></i>
                     </div>
                     <h3 style="color: #1a3467; text-align: center;">NUEVO FORO</h3>
-                    <div class="asunto-escribir-foro">
-                        <label for="asunto-foro" class="label-asunto">Asunto:</label>
-                        <input type="text" id="asunto-foro">
-                    </div>
-                    <div class="descripcion-escribir-foro">
-                        <p class="label-descripcion">Descripción:</p>
-                        <textarea name="" id="descripcion-foro"></textarea>
-                    </div>
-                    <label for="Fecha_cierre" class="label-fecha-cierre-mobile">Fecha de cierre del foro:</label>
-                    <div class="fecha-escribir-foro">
-                        <label for="Fecha_cierre" class="label-fecha-cierre">Fecha de cierre del foro:</label>
-                        <input type="date" name="Fecha_cierre" id="Fecha_cierre">
-                        <label for="Hora_cierre" class="label-hora-cierre"></label>
-                        <input type="time" name="Hora_cierre" id="Hora_cierre">
-                    </div>
-                    <div class="btn-publicar-foro">
-                        <button class="publicar-foro">Publicar Foro</button>
-                    </div>
+
+                    <form method="post" action="Main.php"> 
+                        <div class="asunto-escribir-foro">
+                            <label for="asunto-foro" class="label-asunto">Asunto:</label>
+                            <input type="text" id="asunto-foro" name="Asunto" required>
+                        </div>
+                        <div class="descripcion-escribir-foro">
+                            <p class="label-descripcion">Descripción:</p>
+                            <textarea name="Descripcion" id="descripcion-foro" required></textarea>
+                        </div>
+                        <label for="Fecha_cierre" class="label-fecha-cierre-mobile">Fecha de cierre del foro:</label>
+                        <div class="fecha-escribir-foro">
+                            <label for="Fecha_cierre" class="label-fecha-cierre">Fecha de cierre del foro:</label>
+                            <input type="datetime-local" name="Fecha_cierre" id="Fecha_cierre" required>
+                        </div>
+                        <div class="btn-publicar-foro">
+                        <input type="submit" value="Publicar Foro" class="publicar-foro" name="PublicarForo">
+                        </div>
+                    </form>
                 </div>
             </section>
 
@@ -331,6 +340,11 @@
         </div>
     </div>
     <script src="../js/main.js"></script>
+    <script>
+    if (window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 </body>
 
 </html>
