@@ -92,6 +92,9 @@ ul form input[type="submit"] {
 .iniciarnuevapublicacion-off {
     display: none;
 }
+.miPerfil-off{
+    display: none;
+}
 
 .iniciarforo-off {
     display: none;
@@ -474,6 +477,52 @@ span {
     border-radius: 10px;
     width: 100%;
 }
+
+/* !ESTILO PARA MI PERFIL */
+.contenedor-sidebar-OFF{
+    display: none;
+}
+.Header-MiPerfil{
+    background: #1A3467;
+    margin: 0;
+}
+#miPerfil{
+    color: white !important;
+    width: 100%;
+}
+.titulo-header-perfil{
+    text-align: center;
+}
+.contenido-header-perfil{
+    padding: 1.5rem;
+}
+.SobremiPerfil{
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+}
+.datos_Perfil{
+    color: #b4afaf;
+}
+.ContenidoPrincipal{
+    margin-top: 2rem;
+}
+.Secciones-Perfil{
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Secciones-Perfil button{
+    border: none !important;
+    background: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #b4afaf;
+}
+.btnMisForos{
+    color: #1A3467 !important;
+}
+
 
 /* ! Visual Queryes responsive */
 @media screen and (max-width: 1024px) {

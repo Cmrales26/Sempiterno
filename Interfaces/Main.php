@@ -31,6 +31,7 @@
     $apellido = $_SESSION['Apellido'];
     $telefono = $_SESSION['Telefono'];
     $fechaNacimiento = $_SESSION['FechaNacimiento'];
+    $edad = $_SESSION['edad'];
     if (!isset($_SESSION["Sempiterno"])) {
         $_SESSION["Sempiterno"] = "Nuevo Inicio";
         echo "<script> 
@@ -50,7 +51,7 @@
     <section id="contenedor-navbar">
         <nav>
             <div class="logo">
-                <a href="#"><img src="../img/Logo.svg" alt="Logotipo Sempiterno" width="50%"></a>
+                <a href="main.php"><img src="../img/Logo.svg" alt="Logotipo Sempiterno" width="50%"></a>
             </div>
             <div class="config">
                 <div class="icon-notificacion">
@@ -242,6 +243,36 @@
                         </div>
                     </form> 
                 </div>
+            </section>
+
+            <section id="miPerfil">
+                <div class="Header-MiPerfil">
+                    <div class= "contenido-header-perfil">
+                        <div class = "titulo-header-perfil"> 
+                            <h2> MI PERFIL </h2>
+                        </div>
+                    </div>
+                    <div class = "SobremiPerfil">
+                        <div class = "Nombre-pefil"> 
+                            <h1> <?= $nombre?> <?= $apellido?></h1>
+                        </div>
+                        <div class = "datos_Perfil"> 
+                            <p>No. Identificación: <?=$id?> &nbsp Edad: <?= $edad?> &nbsp Teléfono: <?= $telefono?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ContenidoPrincipal"> 
+                    <div class="Secciones-Perfil">
+                        <button type="button" class="btnMisForos">Mis Foros</button>
+                        <button type="button" class="btnMisPublicaciones">Mis Publicaciones</button>
+                    </div>
+                </div>
+                <div class="MisForos">
+                    <h1>Mis foros</h1>
+                </div>
+                <div class = "MisPublicaciones">
+                    <h1>Mis Publicaciones</h1>
+                </divc>
             </section>
 
             <section id="ESCRIBIR-FORO">

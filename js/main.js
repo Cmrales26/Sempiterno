@@ -5,6 +5,9 @@ const editarPerfil = document.getElementById("EDITAR-PERFIL");
 const cambiarContrasena = document.getElementById("CAMBIAR-CONTRASENA");
 const escribirForo = document.getElementById("ESCRIBIR-FORO");
 const publicarPub = document.getElementById("ESCRIBIR-PUBLICACION");
+const sidebar = document.getElementById("contenedor-sidebar");
+const contenido_principal = document.getElementById("contenido-principal");
+const MiPerfil = document.getElementById("miPerfil");
 
 // Seleccion de las descoraciones de las secciones
 const under_foro = document.getElementById("under_foro");
@@ -24,6 +27,7 @@ window.onload = (event) => {
 }
 
 const cargarForo = () => {
+    MiPerfil.classList.add("miPerfil-off");
     foro.classList.remove("FORO-OFF"); // se remuve la clase foro off para reactivar su vista
     under_foro.classList.add("under-foros"); // se agrega la descoracion 
     under_pub.classList.remove("under-pub"); // se remueve la descoracion
@@ -38,8 +42,12 @@ const cargarForo = () => {
     foro_icon.classList.add("sectionactive"); // Le da un color a el lugar donde está hubicado
     pub_icon.classList.remove("sectionactive"); // Remueve la clase
     grupo_icon.classList.remove("sectionactive"); // Remueve la clase
+    contenido_principal.style.width = "";
+    contenido_principal.style.marginLeft = "";
+    contenido_principal.style.padding = "";
 }
 const cargarPublicaiones = () => {
+    MiPerfil.classList.add("miPerfil-off");
     iniciar_pub.classList.remove("iniciarnuevapublicacion-off"); // Se agrega el boton crear publicacion
     iniciar_foro.classList.add("iniciarforo-off"); // Se elimina el boton iniciar nuevo foro
     under_foro.classList.remove("under-foros"); // Se remuve la decoracion de foro
@@ -54,8 +62,12 @@ const cargarPublicaiones = () => {
     foro_icon.classList.remove("sectionactive"); // Remueve la clase
     pub_icon.classList.add("sectionactive"); // Le da un color a el lugar donde está hubicado
     grupo_icon.classList.remove("sectionactive"); // Remueve la clase
+    contenido_principal.style.width = "";
+    contenido_principal.style.marginLeft = "";
+    contenido_principal.style.padding = "";
 }
 const cargarEditarPerfil = () => {
+    MiPerfil.classList.add("miPerfil-off");
     foro.classList.add("FORO-OFF"); // se agrega la clase foro off ocultarla
     under_foro.classList.remove("under-foros"); // se remueve la decoracion 
     under_pub.classList.remove("under-pub"); // se remueve la descoracion
@@ -67,8 +79,13 @@ const cargarEditarPerfil = () => {
     cambiarContrasena.classList.add("CAMBIAR-CONTRASENA-OFF"); // Se apaga el cambiar contraseña
     escribirForo.classList.add("ESCRIBIR-FORO-OFF"); // se agrega la clase para evitar su vista
     publicarPub.classList.add("ESCRIBIR-PUBLICACION-OFF");// se agrega la clase para evitar su vista
+    sidebar.classList.remove("contenedor-sidebar-OFF");
+    contenido_principal.style.width = "";
+    contenido_principal.style.marginLeft = "";
+    contenido_principal.style.padding = "";
 }
 const cargarCambiarContrasena = () => {
+    MiPerfil.classList.add("miPerfil-off");
     foro.classList.add("FORO-OFF"); // se agrega la clase foro off ocultarla
     under_foro.classList.remove("under-foros"); // se remueve la decoracion 
     under_pub.classList.remove("under-pub"); // se remueve la descoracion
@@ -80,6 +97,27 @@ const cargarCambiarContrasena = () => {
     cambiarContrasena.classList.remove("CAMBIAR-CONTRASENA-OFF"); // Se apaga el cambiar contraseña
     escribirForo.classList.add("ESCRIBIR-FORO-OFF"); // se agrega la clase para evitar su vista
     publicarPub.classList.add("ESCRIBIR-PUBLICACION-OFF");// se agrega la clase para evitar su vista
+    sidebar.classList.remove("contenedor-sidebar-OFF");
+    contenido_principal.style.width = "";
+    contenido_principal.style.marginLeft = "";
+    contenido_principal.style.padding = "";
+}
+
+const cargarMiPerfil = () =>{
+    MiPerfil.classList.remove("miPerfil-off");
+    foro.classList.add("FORO-OFF"); // se agrega la clase foro off ocultarla
+    iniciar_pub.classList.add("iniciarnuevapublicacion-off"); // Se eliminar el boton inicar publicacion
+    iniciar_foro.classList.add("iniciarforo-off"); // Se elimina el boton iniciar foro
+    document.title = "Mi Perfil"; // Se establece el titulo de la pagina
+    publicaciones.classList.add("PUBLICACIONES-OFF"); // Se apagan las publicaciones
+    editarPerfil.classList.add("EDITAR-PERFIL-OFF"); // Se encide la vista del editar perfil
+    cambiarContrasena.classList.add("CAMBIAR-CONTRASENA-OFF"); // Se apaga el cambiar contraseña
+    escribirForo.classList.add("ESCRIBIR-FORO-OFF"); // se agrega la clase para evitar su vista
+    publicarPub.classList.add("ESCRIBIR-PUBLICACION-OFF");// se agrega la clase para evitar su vista
+    sidebar.classList.add("contenedor-sidebar-OFF");
+    contenido_principal.style.width = "100%";
+    contenido_principal.style.marginLeft = "0%";
+    contenido_principal.style.padding = "0rem";
 }
 
 document.querySelector(".foros").addEventListener("click", (event) => {
@@ -109,7 +147,9 @@ for (var i = 0; i < perfil_menu.length; i++) {
         index = tab.indexOf(this.innerHTML); // Le asigno el valor de this a la variable aulixiar index
 
         //COMPARO PARA REALIZAR LA FUNCIONES PARA CADA UNO DE LOS CASOS
-        if (this.innerHTML === "Editar Perfil") { // En caso de dar clic en editar perfil
+        if (this.innerHTML == "Mi perfil"){
+            cargarMiPerfil();
+        }else if (this.innerHTML === "Editar Perfil") { // En caso de dar clic en editar perfil
             cargarEditarPerfil(); //Carga la funcion editar perfil
         } else if (this.innerHTML === "Cambiar Contraseña") { // En caso de dar clic en cambiar contraseña
             cargarCambiarContrasena(); // Cargar la funcion cambiar contraseña

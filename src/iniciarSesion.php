@@ -41,6 +41,7 @@ function iniciarSesion($id){
         $_SESSION['Apellido'] = $row['Apellido']; // Guardamos en nuestra sesion la ID
         $_SESSION['Telefono'] = $row['Telefono']; // Guardamos en nuestra sesion la ID
         $_SESSION['FechaNacimiento'] = $row['FechaNacimiento']; // Guardamos en nuestra sesion la ID
+        $_SESSION['edad'] = $row['Edad']; // Guardamos en nuestra de la Edad
     }
 }
 ?>
