@@ -169,10 +169,6 @@
                 </div>
             </section>
 
-            <?php
-            // echo ValidarContrasena();
-                ?>
-
             <section id="EDITAR-PERFIL">
                 <div class="card-editar-perfil">
                     <div class="volver-foro" onclick="cargarForo()">
@@ -225,23 +221,26 @@
                         <i class="fa-solid fa-arrow-left"></i>
                     </div>
                     <h1 style="color: #1a3467;">Modificar contraseña</h1>
-                    <div class="mb-3">
-                        <label for="Contrasena-antigua" class="form-label">Contraseña Actual</label>
-                        <input type="password" class="form-control" id="Contrasena-antigua">
-                    </div>
-                    <div class="mb-3">
-                        <label for="Contrasena-nueva" class="form-label">NuevaContraseña</label>
-                        <input type="password" class="form-control" id="Contrasena-nueva">
-                    </div>
-                    <div class="mb-3">
-                        <label for="Vali_Contrasena-nueva" class="form-label">Validar Contraseña</label>
-                        <input type="password" class="form-control" id="Vali_Contrasena-nueva">
-                    </div>
-                    <div class="botones">
-                        <div class="boton-cambiar-contrasena">
-                            <input type="button" value="Cambiar Contraseña" class="Modificar-contrasena">
+
+                    <form method="post" action="Main.php"> 
+                        <div class="mb-3">
+                            <label for="Contrasena-antigua" class="form-label">Contraseña Actual</label>
+                            <input type="password" class="form-control" id="Contrasena-antigua" name = "Contrasena_antigua" required>
                         </div>
-                    </div>
+                        <div class="mb-3">
+                            <label for="Contrasena-nueva" class="form-label">NuevaContraseña</label>
+                            <input type="password" class="form-control" id="Contrasena-nueva" name="Contrasena_nueva" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Vali_Contrasena-nueva" class="form-label">Validar Contraseña</label>
+                            <input type="password" class="form-control" id="Vali_Contrasena-nueva" name="Vali_Contrasena_nueva" required>
+                        </div>
+                        <div class="botones">
+                            <div class="boton-cambiar-contrasena">
+                                <input type="submit" value="Cambiar Contraseña" class="Modificar-contrasena" name="Modificar_contrasena">
+                            </div>
+                        </div>
+                    </form> 
                 </div>
             </section>
 
