@@ -27,9 +27,12 @@ if (!empty($_POST['Crear'])) { // Verificamos que los datos del registro  usuari
 
         // Mediante la funcion Edad Podemos calcular la edad del usuario en base a su fecha de nacimiento. 
         $edad = Edad($nacimiento);
+        // $fechaNacimiento = new DateTime($nacimiento);
+
 
         // Se agrega la conexión y se insertan los datos en la base de datos
-        $sql = $conexion->query("INSERT INTO usuarios(ID_USUARIO, Nombre, Apellido, Contraseña, Telefono,Edad)values('$id', '$nombre', '$apellido', '$pass', '$tele', '$edad')");
+        $sql = $conexion->query("INSERT INTO usuarios(ID_USUARIO, Nombre, Apellido, Contraseña, Telefono,FechaNacimiento,Edad)
+        values('$id', '$nombre', '$apellido', '$pass', '$tele', '$nacimiento','$edad')");
 
         // En caso de que la sentencia sql sea exitosa, Mandará una alerta de registro exitoso. 
         if ($sql == 1) {
