@@ -44,6 +44,11 @@ nav {
     flex-wrap: wrap;
 }
 
+ul form input[type="submit"] {
+    background: none;
+    border: none !important;
+}
+
 .config {
     display: flex;
     gap: 2rem;
@@ -178,7 +183,9 @@ span {
     display: flex;
 }
 
-.nuevoforo-btn, .nuevapub-btn, .label-fecha-cierre-mobile {
+.nuevoforo-btn,
+.nuevapub-btn,
+.label-fecha-cierre-mobile {
     display: none;
 }
 
@@ -552,7 +559,8 @@ span {
         display: none;
     }
 
-    .nuevoforo-btn,.nuevapub-btn {
+    .nuevoforo-btn,
+    .nuevapub-btn {
         display: block;
     }
 
@@ -598,16 +606,20 @@ span {
     .contenedor-escribir-publicacion {
         padding: 1rem;
     }
-    .label-fecha-cierre-mobile{
+
+    .label-fecha-cierre-mobile {
         display: block;
     }
-    .label-fecha-cierre{
+
+    .label-fecha-cierre {
         display: none;
     }
-    .fecha-escribir-foro{
+
+    .fecha-escribir-foro {
         display: flex;
         justify-content: space-between;
     }
+
     #Fecha_cierre,
     #Hora_cierre {
         width: 45% !important;
@@ -615,7 +627,8 @@ span {
         color: #1A3467;
         margin-left: 0;
     }
-    .agregar-imagen-pub label{
+
+    .agregar-imagen-pub label {
         width: 100%;
         text-align: center;
     }

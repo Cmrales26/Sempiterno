@@ -24,17 +24,26 @@
 <body>
     <?php
     session_start();
-    $usuario = $_SESSION['Identificación'];
-
-    echo "<script> 
-    Swal.fire({
+    include '../src/CdMain.php';
+    include '../src/Conexion.php';
+    $id = $_SESSION['Identificación'];
+    $nombre = $_SESSION['Nombre'];
+    $apellido = $_SESSION['Apellido'];
+    $telefono = $_SESSION['Telefono'];
+    $fechaNacimiento = $_SESSION['FechaNacimiento'];
+    if (!isset($_SESSION["Sempiterno"])) {
+        $_SESSION["Sempiterno"] = "Nuevo Inicio";
+        echo "<script> 
+        Swal.fire({
         icon:'success',
         title: '✌️',
-        text: 'Bienvenido $usuario',
+        text: 'Bienvenido $nombre $apellido',
         timer: 1500,
         showConfirmButton: false
       });
     </script>";
+    }
+    ;
     ?>
 
 
@@ -56,7 +65,11 @@
                         <li class="dropdown-item">Editar Perfil</li>
                         <li class="dropdown-item">Cambiar Contraseña</li>
                         <li class="dropdown-item">Modo Oscuro</li>
-                        <li class="dropdown-item">Cerrar Sesión</li>
+                        <li class="dropdown-item">
+                            <form method="post" action="Main.php" id="CerrarSesion">
+                                <input type="submit" name="Cerrar_Sesion" value="Cerrar Sesión" class="Cerrar_sesion">
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -118,74 +131,6 @@
                         <a href="#"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
                     </div>
                 </div>
-                <div class="card-foro" id="2">
-                    <div class="info-foro">
-                        <div class="Tematica-foro">
-                            <h3>Diana Vidal</h3>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel nam quia modi veritatis,
-                                deleniti in illo, at fuga, asperiores qui assumenda praesentium. Eaque, aliquam
-                                veritatis! Vero voluptatem ipsam hic labore?</p>
-                        </div>
-                        <hr>
-                        <div class="fecha-foro">
-                            18/05/2023 - 31/05/2023
-                        </div>
-                    </div>
-                    <div class="vermas-foro">
-                        <a href="#"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
-                    </div>
-                </div>
-                <div class="card-foro" id="3">
-                    <div class="info-foro">
-                        <div class="Tematica-foro">
-                            <h3>Diana Vidal</h3>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel nam quia modi veritatis,
-                                deleniti in illo, at fuga, asperiores qui assumenda praesentium. Eaque, aliquam
-                                veritatis! Vero voluptatem ipsam hic labore?</p>
-                        </div>
-                        <hr>
-                        <div class="fecha-foro">
-                            18/05/2023 - 31/05/2023
-                        </div>
-                    </div>
-                    <div class="vermas-foro">
-                        <a href="#"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
-                    </div>
-                </div>
-                <div class="card-foro" id="4">
-                    <div class="info-foro">
-                        <div class="Tematica-foro">
-                            <h3>Diana Vidal</h3>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel nam quia modi veritatis,
-                                deleniti in illo, at fuga, asperiores qui assumenda praesentium. Eaque, aliquam
-                                veritatis! Vero voluptatem ipsam hic labore?</p>
-                        </div>
-                        <hr>
-                        <div class="fecha-foro">
-                            18/05/2023 - 31/05/2023
-                        </div>
-                    </div>
-                    <div class="vermas-foro">
-                        <a href="#"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
-                    </div>
-                </div>
-                <div class="card-foro" id="5">
-                    <div class="info-foro">
-                        <div class="Tematica-foro">
-                            <h3>Diana Vidal</h3>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel nam quia modi veritatis,
-                                deleniti in illo, at fuga, asperiores qui assumenda praesentium. Eaque, aliquam
-                                veritatis! Vero voluptatem ipsam hic labore?</p>
-                        </div>
-                        <hr>
-                        <div class="fecha-foro">
-                            18/05/2023 - 31/05/2023
-                        </div>
-                    </div>
-                    <div class="vermas-foro">
-                        <a href="#"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
-                    </div>
-                </div>
             </section>
 
             <section id="PUBLICACIONES">
@@ -223,6 +168,11 @@
                     </div>
                 </div>
             </section>
+
+            <?php
+            // echo ValidarContrasena();
+                ?>
+
             <section id="EDITAR-PERFIL">
                 <div class="card-editar-perfil">
                     <div class="volver-foro" onclick="cargarForo()">
@@ -230,41 +180,42 @@
                     </div>
                     <h1 style="color: #1a3467;">Editar Perfil</h1>
 
-                    <div class="formulario-">
-                        <div class="mb-3">
-                            <label for="Nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="Nombre">
+                    <form method="post" action="Main.php">
+                        <div class="formulario-">
+                            <div class="mb-3">
+                                <label for="Nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="Nombre" required value="<?= $nombre ?>" name="nuevoNombre">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Apellido" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="Apellido" required value="<?= $apellido ?>" name="nuevoApellido">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Indentificacion" class="form-label">Identificación</label>
+                                <input type="number" class="form-control" id="Identificacion" required value="<?= $id ?>"
+                                    readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Fecha_Nacimiento" class="form-label">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" required id="Fecha_Nacimiento"
+                                    value="<?= $fechaNacimiento ?>" name="nuevoNacimiento">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Telefono" class="form-label">Teléfono</label>
+                                <input type="number" class="form-control" id="Telefono" required value="<?= $telefono ?>" name="nuevoTelefono">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Contraseña" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="Contraseña"
+                                required placeholder="Ingrese Su contraseña Actual" name="Contraseña">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="Apellido" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" id="Apellido">
+                        <div class="botones">
+                            <div class="ModificarCuenta">
+                                <input type="submit" value="Guardar Cambios" class="Modificar" name="Modificar">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="Indentificacion" class="form-label">Identificación</label>
-                            <input type="number" class="form-control" id="Identificacion" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Fecha_Nacimiento" class="form-label">Fecha de Nacimiento</label>
-                            <input type="date" class="form-control" id="Fecha_Nacimiento">
-                        </div>
-                        <div class="mb-3">
-                            <label for="Telefono" class="form-label">Teléfono</label>
-                            <input type="number" class="form-control" id="Telefono">
-                        </div>
-                        <div class="mb-3">
-                            <label for="Contraseña" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="Contraseña">
-                        </div>
-                        <div class="mb-3">
-                            <label for="Vali_Contraseña" class="form-label">Validar Contraseña</label>
-                            <input type="password" class="form-control" id="Vali_Contraseña">
-                        </div>
-                    </div>
-                    <div class="botones">
-                        <div class="ModificarCuenta">
-                            <input type="button" value="Guardar Cambios" class="Modificar">
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </section>
 
