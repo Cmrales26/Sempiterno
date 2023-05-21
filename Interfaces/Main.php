@@ -45,6 +45,7 @@
     </script>";
     }
     ;
+    include("../src/PublicacionesyForos.php");
     ?>
 
 
@@ -60,6 +61,7 @@
                 <div class="dropdown-perfil">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user"></i>
+                        <?= $_SESSION["Nombre"]?> <?= $_SESSION["Apellido"]?>
                     </button>
                     <ul class="dropdown-menu dropdown-perfil" id="dropdown-perfil">
                         <li class="dropdown-item">Mi perfil</li>
@@ -107,11 +109,6 @@
         <div id="contenido-principal">
             <section id="FORO">
                 <div class="filtro-foro">
-                    <!-- <select class="form-select form-select-foro" aria-label="Default select example" name= "Opcion">
-                        <option selected>Más Reciente</option>
-                        <option value="1">Más Antiguo</option>
-                    </select> -->
-
 
                     <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -135,11 +132,8 @@
                     </div>
                 </div>
                 <?php
-                    include("../src/PublicacionesyForos.php");
-                    obtenerForo()
+                    obtenerForo();
                 ?>
-                
-
             </section>
 
             <section id="PUBLICACIONES">
@@ -148,34 +142,11 @@
                         <i class="fa-solid fa-plus"></i> Nueva Publicación
                     </div>
                 </div>
-                <div class="card-publicaciones">
-                    <div class="info-publicacion">
-                        <div class="autor-publicacion">
-                            <h3>Diana Vidal</h3>
-                        </div>
-                        <div class="fecha-publicacion">Publicado: 20/12/21</div>
-                    </div>
-                    <div class="contenido-publicacion">
-                        <div class="contenido-publicacion-texto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu bibendum risus. Aliquam
-                                sit amet posuere libero. Integer luctus, turpis at consectetur ornare, elit lectus
-                                ultricies urna, a consequat nunc eros non lacus.</p>
-                        </div>
-                        <div class="contenido-publicacion-imagen">
-                            <img src="https://www.bible.com/_next/image?url=https%3A%2F%2F%2F%2Fimageproxy.youversionapi.com%2F640x640%2Fhttps%3A%2F%2Fs3.amazonaws.com%2Fstatic-youversionapi-com%2Fimages%2Fbase%2F39359%2F1280x1280.jpg&w=3840&q=75"
-                                alt="">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="acciones-publicaciones">
-                        <div class="like-publicacion">
-                            <i class="fa-regular fa-heart"></i> like
-                        </div>
-                        <div class="comentar-publicacion">
-                            <i class="fa-regular fa-comment"></i> Comentar
-                        </div>
-                    </div>
-                </div>
+
+                <?php
+                    obtenerPublicacion()
+                ?>
+                
             </section>
 
             <section id="EDITAR-PERFIL">
@@ -318,23 +289,26 @@
                     </div>
                     <h3 style="color: #1a3467; text-align: center;">NUEVA PUBLICACIÓN</h3>
                     <hr>
-                    <div class="descripcion-escribir-publicacion">
-                        <p class="label-descripcion">Descripción:</p>
-                        <textarea name="descripcion-publicacion" id="descripcion-publicacion"></textarea>
-                    </div>
-                    <div class="agregarala-img-publicacion">
+                    
+                    <form action="Main.php" method="POST" enctype="multipart/form-data">
+                        <div class="descripcion-escribir-publicacion">
+                            <label for="descripcion" class="label-descripcion">Descripción:</label>
+                            <textarea name="descripcion" id="descripcion-publicacion" required></textarea>
+                        </div>
+
+                        <div class="agregarala-img-publicacion">
                         <div class="preview preview-off">
                             <img id="file-ip-1-preview">
                         </div>
                         <div class="agregar-imagen-pub">
-                            <label for="file-ip-1">Agregar Imagen <i
-                                    class="fa-sharp fa-solid fa-file-arrow-up"></i></label>
-                            <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+                            <label for="file-ip-1"> Agregar Imagen <i class="fa-sharp fa-solid fa-file-arrow-up"></i></label>
+                            <input type="file" name="imagen" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
                         </div>
                     </div>
                     <div class="btn-publicar">
-                        <button class="publicar">Publicar</button>
+                        <input type="submit" value="Publicar" name="Publ" class="publicar">
                     </div>
+                    </form>
                 </div>
             </section>
         </div>
