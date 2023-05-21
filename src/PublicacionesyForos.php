@@ -15,10 +15,10 @@ function borarForo()
             $id = $row['ID_FORO'];
             $q = "UPDATE foro SET Estado = 0 WHERE ID_FORO = $id";
             $res = $conexion->query($q);
-            } 
         }
-        return;
     }
+    return;
+}
 
 //OBTENER FOROS
 
@@ -170,7 +170,7 @@ function obtenerPublicacion()
                             <div class='like-publicacion'>
                                 <i class='fa-regular fa-heart'></i> Likes: 3
                             </div>
-                            <div class='comentar-publicacio'>
+                            <div class='comentar-publicacion'>
                                 <i class='fa-regular fa-comment'></i> Comentar
                             </div>
                         </div>
@@ -203,6 +203,227 @@ function obtenerPublicacion()
                     </div>
                 ";
         }
+    }
+}
+
+function obtenermisForo()
+{
+    global $conexion;
+    $id = $_SESSION['Identificación'];
+    $query = "SELECT * FROM foro as foro INNER JOIN usuarios as usuarios ON foro.Usuario_id = usuarios.ID_USUARIO WHERE usuarios.ID_USUARIO = $id AND foro.Estado = 1 ORDER BY foro.Fecha_Pub_Foro DESC;";
+    $result = mysqli_query($conexion, $query) or die("Algo ha ido mal en la consulta a la base de datos");
+
+
+    $conteoResultados = "SELECT  COUNT(*) as Conteo FROM foro as foro INNER JOIN usuarios as usuarios ON foro.Usuario_id = usuarios.ID_USUARIO WHERE usuarios.ID_USUARIO = $id AND foro.Estado = 1 ORDER BY foro.Fecha_Pub_Foro DESC;";
+    $rs = $conexion->query($conteoResultados);
+    $rsarray = mysqli_fetch_array($rs);
+
+    if ($rsarray['Conteo'] > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            echo "
+            <div class='card-misforos' id=" . $row['ID_FORO'] . ">
+                        <div class='info-misforo'>
+                            <div class='Tematica-misforo'>
+                                <div class='header-misforo'>
+                                    <div class='Autor-misforo'>
+                                        <h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>
+                                        <h5>" . $row['Asunto'] . "</h5>
+                                    </div>
+                                    <div class='Configuración-foro'>
+                                        <div class='dropdown-foro'>
+                                            <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'
+                                                aria-expanded='false'>
+                                                <i class='fa-solid fa-ellipsis'></i>
+                                            </button>
+                                            <ul class='dropdown-menu dropdown-foro' id='dropdown-foro'>
+                                                <li class='dropdown-item'>
+                                                    <form method='post' action='Main.php' id='Editar'>
+                                                        <form method='post' action='Main.php' id='Editar'>
+                                                            <input type='submit' name='Editar' value='Editar'
+                                                                class='Editar'>
+                                                        </form>
+                                                    </form>
+                                                </li>
+
+                                                <li class='dropdown-item'>
+                                                    <form method='post' action='Main.php' id='Eliminar'>
+                                                        <form method='post' action='Main.php' id='Eliminar'>
+                                                            <input type='submit' name='Eliminar' value='Eliminar'
+                                                                class='Eliminar'>
+                                                        </form>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>" . $row['Descripcion'] . "</p>
+                            </div>
+                            <hr>
+                            <div class='fecha-misforo'>
+                                Abrió el: " . $row["Fecha_Pub_Foro"] . " -  Cerrará el: " . $row["Cierre_foro"] . "
+                            </div>
+                        </div>
+                    </div>
+
+            ";
+        }
+    } else {
+        echo "
+        <div class='NoseEncontro'>
+            <div class='Mensaje-Foro'>
+                <h4>NO SE ENCONTRÓ NINGÚN FORO</h4>
+            </div>
+            <div class='EscribirForo' onclick='escribirnuevoforo()'>
+                <h6>INICIAR NUEVO FORO <i class='fa-solid fa-plus'></i></h6>
+            </div>
+        </div>
+        ";
+    }
+}
+
+function obtenermisPublicaciones()
+{
+    global $conexion;
+    $id = $_SESSION['Identificación'];
+    $query = "SELECT * FROM publicaciones as publicaciones INNER JOIN usuarios as usuarios ON publicaciones.Usuario_id = usuarios.ID_USUARIO WHERE usuarios.ID_USUARIO = $id";
+    $result = $conexion->query($query);
+
+    $contador = "SELECT COUNT(*) as Conteo FROM publicaciones as publicaciones INNER JOIN usuarios as usuarios ON publicaciones.Usuario_id = usuarios.ID_USUARIO WHERE usuarios.ID_USUARIO = $id";
+    $rs = $conexion->query($contador);
+    $rsaarray = mysqli_fetch_array($rs);
+
+    if ($rsaarray['Conteo'] > 0) {
+
+        while ($row = mysqli_fetch_array($result)) {
+            if (base64_encode($row['Imagen']) !== "") {
+                echo
+                    "
+            <div class='card-mispublicaciones'  id=" . $row['ID_PUB'] . ">
+            <div class='info-mispublicacion'>
+                <div class='autor-mispublicacion-opciones'>
+                    <div class='autor-publicacion'>
+                        <h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>
+                    </div>
+                    <div class='Configuración-publi'>
+                                <div class='dropdown-publi'>
+                                    <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'
+                                        aria-expanded='false'>
+                                        <i class='fa-solid fa-ellipsis'></i>
+                                    </button>
+                                    <ul class='dropdown-menu dropdown-publi' id='dropdown-publi'>
+                                        <li class='dropdown-item'>
+                                            <form method='post' action='Main.php' id='Editar-pub'>
+                                                <form method='post' action='Main.php' id='Editar-pub'>
+                                                    <input type='submit' name='Editar-pub' value='Editar'
+                                                        class='Editar-pub'>
+                                                </form>
+                                            </form>
+                                        </li>
+    
+                                        <li class='dropdown-item'>
+                                            <form method='post' action='Main.php' id='Eliminar-pub'>
+                                                <form method='post' action='Main.php' id='Eliminar-pub'>
+                                                    <input type='submit' name='Eliminar-pub' value='Eliminar'
+                                                        class='Eliminar-pub'>
+                                                </form>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                </div>
+                <div class='fecha-publicacion'>Publicado: " . $row['Fecha_pub'] . "</div>
+            </div>
+
+            <div class'contenido-mispublicacion'>
+                <div class'contenido-publicacion-texto'>
+                    <p>" . $row['Descripcion'] . "</p>
+                </div>
+                <div class='contenido-publicacion-imagen'>
+                    <img src='data:image/jpg;base64, " . base64_encode($row['Imagen']) . " 'alt=none>
+                </div>
+            </div>
+            <hr>
+            <div class='acciones-publicaciones'>
+                <div class='like-publicacion'>
+                    <i class='fa-regular fa-heart'></i> like
+                </div>
+                <div class='comentar-publicacion'>
+                    <i class='fa-regular fa-comment'></i> Comentar
+                </div>
+            </div>
+        </div>
+            ";
+            } else {
+                echo
+                    "
+        <div class='card-mispublicaciones'  id=" . $row['ID_PUB'] . ">
+        <div class='info-mispublicacion'>
+            <div class='autor-mispublicacion-opciones'>
+                <div class='autor-publicacion'>
+                    <h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>
+                </div>
+                <div class='Configuración-publi'>
+                            <div class='dropdown-publi'>
+                                <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'
+                                    aria-expanded='false'>
+                                    <i class='fa-solid fa-ellipsis'></i>
+                                </button>
+                                <ul class='dropdown-menu dropdown-publi' id='dropdown-publi'>
+                                    <li class='dropdown-item'>
+                                        <form method='post' action='Main.php' id='Editar-pub'>
+                                            <form method='post' action='Main.php' id='Editar-pub'>
+                                                <input type='submit' name='Editar-pub' value='Editar'
+                                                    class='Editar-pub'>
+                                            </form>
+                                        </form>
+                                    </li>
+
+                                    <li class='dropdown-item'>
+                                        <form method='post' action='Main.php' id='Eliminar-pub'>
+                                            <form method='post' action='Main.php' id='Eliminar-pub'>
+                                                <input type='submit' name='Eliminar-pub' value='Eliminar'
+                                                    class='Eliminar-pub'>
+                                            </form>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            <div class='fecha-publicacion'>Publicado: " . $row['Fecha_pub'] . "</div>
+        </div>
+
+        <div class'contenido-mispublicacion'>
+            <div class'contenido-mispublicacion-texto'>
+                <p>" . $row['Descripcion'] . "</p>
+            </div>
+        </div>
+        <hr>
+        <div class='acciones-publicaciones'>
+            <div class='like-publicacion'>
+                <i class='fa-regular fa-heart'></i> like
+            </div>
+            <div class='comentar-publicacion'>
+                <i class='fa-regular fa-comment'></i> Comentar
+            </div>
+        </div>
+    </div>
+        ";
+            }
+        }
+    } else {
+        echo "
+        <div class='NoseEncontro'>
+            <div class='Mensaje-Foro'>
+                <h4>NO SE ENCONTRÓ NINGUNA PUBLICACIÓN</h4>
+            </div>
+            <div class='EscribirForo' onclick='escribirnuevapublicacion()'>
+                <h6>CREAR UNA PUBLICACIÓN <i class='fa-solid fa-plus'></i></h6>
+            </div>
+        </div>
+        ";
     }
 }
 ?>

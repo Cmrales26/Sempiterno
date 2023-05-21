@@ -45,6 +45,9 @@ const cargarForo = () => {
     contenido_principal.style.width = "";
     contenido_principal.style.marginLeft = "";
     contenido_principal.style.padding = "";
+    sidebar.classList.remove("contenedor-sidebar-OFF");
+    escribirForo.style.margin = "";
+    publicarPub.style.marginLeft = ""; 
 }
 const cargarPublicaiones = () => {
     MiPerfil.classList.add("miPerfil-off");
@@ -65,6 +68,9 @@ const cargarPublicaiones = () => {
     contenido_principal.style.width = "";
     contenido_principal.style.marginLeft = "";
     contenido_principal.style.padding = "";
+    sidebar.classList.remove("contenedor-sidebar-OFF");
+    escribirForo.style.margin = "";
+    publicarPub.style.marginLeft = ""; 
 }
 const cargarEditarPerfil = () => {
     MiPerfil.classList.add("miPerfil-off");
@@ -83,6 +89,8 @@ const cargarEditarPerfil = () => {
     contenido_principal.style.width = "";
     contenido_principal.style.marginLeft = "";
     contenido_principal.style.padding = "";
+    escribirForo.style.margin = "";
+    publicarPub.style.marginLeft = ""; 
 }
 const cargarCambiarContrasena = () => {
     MiPerfil.classList.add("miPerfil-off");
@@ -101,6 +109,8 @@ const cargarCambiarContrasena = () => {
     contenido_principal.style.width = "";
     contenido_principal.style.marginLeft = "";
     contenido_principal.style.padding = "";
+    escribirForo.style.margin = "";
+    publicarPub.style.marginLeft = ""; 
 }
 
 const cargarMiPerfil = () =>{
@@ -115,10 +125,38 @@ const cargarMiPerfil = () =>{
     escribirForo.classList.add("ESCRIBIR-FORO-OFF"); // se agrega la clase para evitar su vista
     publicarPub.classList.add("ESCRIBIR-PUBLICACION-OFF");// se agrega la clase para evitar su vista
     sidebar.classList.add("contenedor-sidebar-OFF");
-    contenido_principal.style.width = "100%";
-    contenido_principal.style.marginLeft = "0%";
+    contenido_principal.style.width = "100%";  // Modificación del ancho de la seccion al entrar en la vista de perfil
+    // remocion de las margenes y paddings en vista mi pefil
+    contenido_principal.style.marginLeft = "0%"; 
     contenido_principal.style.padding = "0rem";
+    escribirForo.style.margin = "4rem";
+    publicarPub.style.marginLeft = "4rem"; 
 }
+
+const botonMisforos = document.getElementById("MisForos");
+const botonMisPublis = document.getElementById("MisPublis");
+botonMisforos.style.color = "#1A3467";
+document.getElementById("MisPublicaciones").style.display = "none";
+
+botonMisforos.addEventListener("click",(event) => {
+    botonMisforos.style.color = "#1A3467";
+    botonMisPublis.style.color = "#b4afaf";
+    document.getElementById("MisForos_contenido").style.display = "";
+    document.getElementById("MisPublicaciones").style.display = "none";
+    publicarPub.style.display = "none"; 
+});
+
+botonMisPublis.addEventListener("click", (e)=>{{
+    botonMisforos.style.color = "#b4afaf";
+    botonMisPublis.style.color = "#1A3467";
+    document.getElementById("MisForos_contenido").style.display = "none";
+    document.getElementById("MisPublicaciones").style.display = "";
+    escribirForo.style.display = "none";
+}})
+
+
+// ! MODIFICAICION DEL DOM EN LA SECCION MI PEFIL
+
 
 document.querySelector(".foros").addEventListener("click", (event) => {
     cargarForo(); // Se ejecuta la funcion

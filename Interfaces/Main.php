@@ -34,15 +34,6 @@
     $edad = $_SESSION['edad'];
     if (!isset($_SESSION["Sempiterno"])) {
         $_SESSION["Sempiterno"] = "Nuevo Inicio";
-        echo "<script> 
-        Swal.fire({
-        icon:'success',
-        title: '✌️',
-        text: 'Bienvenido $nombre $apellido',
-        timer: 1500,
-        showConfirmButton: false
-      });
-    </script>";
     }
     ;
     include("../src/PublicacionesyForos.php");
@@ -61,7 +52,8 @@
                 <div class="dropdown-perfil">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user"></i>
-                        <?= $_SESSION["Nombre"]?> <?= $_SESSION["Apellido"]?>
+                        <?= $_SESSION["Nombre"] ?>
+                        <?= $_SESSION["Apellido"] ?>
                     </button>
                     <ul class="dropdown-menu dropdown-perfil" id="dropdown-perfil">
                         <li class="dropdown-item">Mi perfil</li>
@@ -111,28 +103,29 @@
                 <div class="filtro-foro">
 
                     <div class="dropdown">
-                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Filtro
-                    </button>
-                    <ul class="dropdown-menu" id="dropdown-perfil">
-                        <li class="dropdown-item">
-                            <form method="post" action="Main.php" id="MasReciente">
-                                <input type="submit" name="MasReciente" value="Mas Reciente" class="MasReciente">
-                            </form>
-                        </li>
-                        <li class="dropdown-item">
-                            <form method="post" action="Main.php" id="MasAntiguo">
-                                <input type="submit" name="MasAntiguo" value="Mas Antiguo" class="MasAntiguo">
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Filtro
+                        </button>
+                        <ul class="dropdown-menu" id="dropdown-perfil">
+                            <li class="dropdown-item">
+                                <form method="post" action="Main.php" id="MasReciente">
+                                    <input type="submit" name="MasReciente" value="Mas Reciente" class="MasReciente">
+                                </form>
+                            </li>
+                            <li class="dropdown-item">
+                                <form method="post" action="Main.php" id="MasAntiguo">
+                                    <input type="submit" name="MasAntiguo" value="Mas Antiguo" class="MasAntiguo">
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="nuevoforo-btn" onclick="escribirnuevoforo()">
                         <i class="fa-solid fa-plus"></i> Nuevo Foro
                     </div>
                 </div>
                 <?php
-                    obtenerForo();
+                obtenerForo();
                 ?>
             </section>
 
@@ -144,9 +137,9 @@
                 </div>
 
                 <?php
-                    obtenerPublicacion()
-                ?>
-                
+                obtenerPublicacion()
+                    ?>
+
             </section>
 
             <section id="EDITAR-PERFIL">
@@ -160,16 +153,18 @@
                         <div class="formulario-">
                             <div class="mb-3">
                                 <label for="Nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="Nombre" required value="<?= $nombre ?>" name="nuevoNombre">
+                                <input type="text" class="form-control" id="Nombre" required value="<?= $nombre ?>"
+                                    name="nuevoNombre">
                             </div>
                             <div class="mb-3">
                                 <label for="Apellido" class="form-label">Apellido</label>
-                                <input type="text" class="form-control" id="Apellido" required value="<?= $apellido ?>" name="nuevoApellido">
+                                <input type="text" class="form-control" id="Apellido" required value="<?= $apellido ?>"
+                                    name="nuevoApellido">
                             </div>
                             <div class="mb-3">
                                 <label for="Indentificacion" class="form-label">Identificación</label>
-                                <input type="number" class="form-control" id="Identificacion" required value="<?= $id ?>"
-                                    readonly>
+                                <input type="number" class="form-control" id="Identificacion" required
+                                    value="<?= $id ?>" readonly>
                             </div>
                             <div class="mb-3">
                                 <label for="Fecha_Nacimiento" class="form-label">Fecha de Nacimiento</label>
@@ -178,12 +173,13 @@
                             </div>
                             <div class="mb-3">
                                 <label for="Telefono" class="form-label">Teléfono</label>
-                                <input type="number" class="form-control" id="Telefono" required value="<?= $telefono ?>" name="nuevoTelefono">
+                                <input type="number" class="form-control" id="Telefono" required
+                                    value="<?= $telefono ?>" name="nuevoTelefono">
                             </div>
                             <div class="mb-3">
                                 <label for="Contraseña" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="Contraseña"
-                                required placeholder="Ingrese Su contraseña Actual" name="Contraseña">
+                                <input type="password" class="form-control" id="Contraseña" required
+                                    placeholder="Ingrese Su contraseña Actual" name="Contraseña">
                             </div>
                         </div>
                         <div class="botones">
@@ -202,55 +198,71 @@
                     </div>
                     <h1 style="color: #1a3467;">Modificar contraseña</h1>
 
-                    <form method="post" action="Main.php"> 
+                    <form method="post" action="Main.php">
                         <div class="mb-3">
                             <label for="Contrasena-antigua" class="form-label">Contraseña Actual</label>
-                            <input type="password" class="form-control" id="Contrasena-antigua" name = "Contrasena_antigua" required>
+                            <input type="password" class="form-control" id="Contrasena-antigua"
+                                name="Contrasena_antigua" required>
                         </div>
                         <div class="mb-3">
                             <label for="Contrasena-nueva" class="form-label">NuevaContraseña</label>
-                            <input type="password" class="form-control" id="Contrasena-nueva" name="Contrasena_nueva" required>
+                            <input type="password" class="form-control" id="Contrasena-nueva" name="Contrasena_nueva"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="Vali_Contrasena-nueva" class="form-label">Validar Contraseña</label>
-                            <input type="password" class="form-control" id="Vali_Contrasena-nueva" name="Vali_Contrasena_nueva" required>
+                            <input type="password" class="form-control" id="Vali_Contrasena-nueva"
+                                name="Vali_Contrasena_nueva" required>
                         </div>
                         <div class="botones">
                             <div class="boton-cambiar-contrasena">
-                                <input type="submit" value="Cambiar Contraseña" class="Modificar-contrasena" name="Modificar_contrasena">
+                                <input type="submit" value="Cambiar Contraseña" class="Modificar-contrasena"
+                                    name="Modificar_contrasena">
                             </div>
                         </div>
-                    </form> 
+                    </form>
                 </div>
             </section>
 
             <section id="miPerfil">
                 <div class="Header-MiPerfil">
-                    <div class= "contenido-header-perfil">
-                        <div class = "titulo-header-perfil"> 
-                            <h2> MI PERFIL </h2>
+                    <div class="SobremiPerfil">
+                        <div class="Nombre-pefil">
+                            <h1>
+                            <a href="Main.php" style="text-decoration: none; color:white; cursor: pointer"><i class="fa-solid fa-arrow-left"></i></a>
+                                <?= $nombre ?>
+                                <?= $apellido ?>
+                            </h1>
                         </div>
-                    </div>
-                    <div class = "SobremiPerfil">
-                        <div class = "Nombre-pefil"> 
-                            <h1> <?= $nombre?> <?= $apellido?></h1>
-                        </div>
-                        <div class = "datos_Perfil"> 
-                            <p>No. Identificación: <?=$id?> &nbsp Edad: <?= $edad?> &nbsp Teléfono: <?= $telefono?></p>
+                        <div class="datos_Perfil">
+                            <p>No. Identificación:
+                                <?= $id ?> &nbsp Edad:
+                                <?= $edad ?> &nbsp Teléfono:
+                                <?= $telefono ?>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="ContenidoPrincipal"> 
+                <div class="ContenidoPrincipal">
                     <div class="Secciones-Perfil">
-                        <button type="button" class="btnMisForos">Mis Foros</button>
-                        <button type="button" class="btnMisPublicaciones">Mis Publicaciones</button>
+                        <button type="button" class="btnMisForos" id="MisForos">Mis Foros</button>
+                        <button type="button" class="btnMisPublicaciones" id="MisPublis">Mis Publicaciones</button>
                     </div>
                 </div>
-                <div class="MisForos">
-                    <h1>Mis foros</h1>
+
+
+                <div class="MisForos" id="MisForos_contenido">
+                    <?php
+                        obtenermisForo();
+                    ?>
                 </div>
-                <div class = "MisPublicaciones">
-                    <h1>Mis Publicaciones</h1>
+
+
+
+                <div class = "MisPublicaciones" id="MisPublicaciones">
+                    <?php
+                     obtenermisPublicaciones();
+                    ?>
                 </div>
             </section>
 
@@ -261,7 +273,7 @@
                     </div>
                     <h3 style="color: #1a3467; text-align: center;">NUEVO FORO</h3>
 
-                    <form method="post" action="Main.php"> 
+                    <form method="post" action="Main.php">
                         <div class="asunto-escribir-foro">
                             <label for="asunto-foro" class="label-asunto">Asunto:</label>
                             <input type="text" id="asunto-foro" name="Asunto" required>
@@ -276,7 +288,7 @@
                             <input type="datetime-local" name="Fecha_cierre" id="Fecha_cierre" required>
                         </div>
                         <div class="btn-publicar-foro">
-                        <input type="submit" value="Publicar Foro" class="publicar-foro" name="PublicarForo">
+                            <input type="submit" value="Publicar Foro" class="publicar-foro" name="PublicarForo">
                         </div>
                     </form>
                 </div>
@@ -289,7 +301,7 @@
                     </div>
                     <h3 style="color: #1a3467; text-align: center;">NUEVA PUBLICACIÓN</h3>
                     <hr>
-                    
+
                     <form action="Main.php" method="POST" enctype="multipart/form-data">
                         <div class="descripcion-escribir-publicacion">
                             <label for="descripcion" class="label-descripcion">Descripción:</label>
@@ -297,17 +309,19 @@
                         </div>
 
                         <div class="agregarala-img-publicacion">
-                        <div class="preview preview-off">
-                            <img id="file-ip-1-preview">
+                            <div class="preview preview-off">
+                                <img id="file-ip-1-preview">
+                            </div>
+                            <div class="agregar-imagen-pub">
+                                <label for="file-ip-1"> Agregar Imagen <i
+                                        class="fa-sharp fa-solid fa-file-arrow-up"></i></label>
+                                <input type="file" name="imagen" id="file-ip-1" accept="image/*"
+                                    onchange="showPreview(event);">
+                            </div>
                         </div>
-                        <div class="agregar-imagen-pub">
-                            <label for="file-ip-1"> Agregar Imagen <i class="fa-sharp fa-solid fa-file-arrow-up"></i></label>
-                            <input type="file" name="imagen" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+                        <div class="btn-publicar">
+                            <input type="submit" value="Publicar" name="Publ" class="publicar">
                         </div>
-                    </div>
-                    <div class="btn-publicar">
-                        <input type="submit" value="Publicar" name="Publ" class="publicar">
-                    </div>
                     </form>
                 </div>
             </section>
@@ -315,10 +329,10 @@
     </div>
     <script src="../js/main.js"></script>
     <script>
-    if (window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
-</script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </body>
 
 </html>

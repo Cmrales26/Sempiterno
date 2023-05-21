@@ -485,6 +485,7 @@ span {
 .Header-MiPerfil{
     background: #1A3467;
     margin: 0;
+    padding-top: 2rem;
 }
 #miPerfil{
     color: white !important;
@@ -519,8 +520,41 @@ span {
     font-weight: 800;
     color: #b4afaf;
 }
-.btnMisForos{
-    color: #1A3467 !important;
+.MisForos, .MisPublicaciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+.card-misforos, .card-mispublicaciones{
+    margin-top: 2rem;
+    background-color: white;
+    color: black;
+    width: 70%;
+    border-radius: 10px;
+    padding: 2rem;
+}
+.Autor-misforo h3{
+    color: #1A3467;
+}
+.header-misforo,.autor-mispublicacion-opciones{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.NoseEncontro{
+    margin-top: .5rem;
+    text-align: center;
+}
+.Mensaje-Foro{
+    color: #696767;
+}
+.EscribirForo{
+    text-decoration: underline;
+    color: #4791E0;
+    cursor: pointer;
 }
 
 
