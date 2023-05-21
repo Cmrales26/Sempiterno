@@ -2,6 +2,24 @@
 require 'Conexion.php';
 date_default_timezone_set('America/Bogota');
 
+
+//ACTUALIZAR ESTADO FORO
+function borarForo()
+{
+    global $conexion;
+    $fechaActual = date("Y-m-d H:i:s");
+    $slqchage = "SELECT * FROM foro";
+    $rs = $conexion->query($slqchage);
+    while ($row = mysqli_fetch_array($rs)) {
+        if ($fechaActual > $row['Cierre_foro']) {
+            $id = $row['ID_FORO'];
+            $q = "UPDATE foro SET Estado = 0 WHERE ID_FORO = $id";
+            $res = $conexion->query($q);
+            } 
+        }
+        return;
+    }
+
 //OBTENER FOROS
 
 function obtenerForo()
@@ -38,6 +56,7 @@ function obtenerForo()
         </div>
         ";
     }
+    borarForo();
 }
 ;
 
