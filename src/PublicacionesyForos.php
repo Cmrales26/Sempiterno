@@ -227,7 +227,6 @@ function obtenermisForo()
                                 <div class='header-misforo'>
                                     <div class='Autor-misforo'>
                                         <h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>
-                                        <h5>" . $row['Asunto'] . "</h5>
                                     </div>
                                     <div class='Configuración-foro'>
                                         <div class='dropdown-foro'>
@@ -257,6 +256,7 @@ function obtenermisForo()
                                         </div>
                                     </div>
                                 </div>
+                                <h5>" . $row['Asunto'] . "</h5>
                                 <p>" . $row['Descripcion'] . "</p>
                             </div>
                             <hr>

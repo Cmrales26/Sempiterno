@@ -43,7 +43,8 @@
     <section id="contenedor-navbar">
         <nav>
             <div class="logo">
-                <a href="main.php"><img src="../img/Logo.svg" alt="Logotipo Sempiterno" width="50%"></a>
+                <a href="main.php" class="Logo_desk"><img src="../img/Logo.svg" alt="Logotipo Sempiterno" width="50%"></a>
+                <a href="main.php" class="Logo_mobile"><img src="../img/Imagotipo.svg" alt="Logotipo Sempiterno" width="50%"></a>
             </div>
             <div class="config">
                 <div class="icon-notificacion">
@@ -52,8 +53,10 @@
                 <div class="dropdown-perfil">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user"></i>
-                        <?= $_SESSION["Nombre"] ?>
-                        <?= $_SESSION["Apellido"] ?>
+                        <span class="hidden-phone-data">
+                            <?= $_SESSION["Nombre"] ?>
+                            <?= $_SESSION["Apellido"] ?>
+                        </span>
                     </button>
                     <ul class="dropdown-menu dropdown-perfil" id="dropdown-perfil">
                         <li class="dropdown-item">Mi perfil</li>
@@ -103,7 +106,7 @@
                 <div class="filtro-foro">
 
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        <button class="btn dropdown-toggle dropdown-toggle-filtro" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Filtro
                         </button>

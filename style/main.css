@@ -22,6 +22,9 @@ body::-webkit-scrollbar-thumb {
     background-color: #CBAC5A;
     min-height: 2px;
 }
+.Logo_mobile{
+    display: none;
+}
 
 #contenedor-navbar {
     position: fixed;
@@ -584,6 +587,9 @@ span {
     .logo img {
         width: 100%;
     }
+    .miPerfil{
+        margin-top: 5rem;
+    }
 }
 
 
@@ -602,10 +608,10 @@ span {
         z-index: 1;
         width: 100%;
         max-width: 100%;
-        /* border: 1px solid red; */
-        height: initial;
-        margin-top: 5rem;
+        height: 1px;
+        margin-top: 4rem;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        overflow: hidden;
     }
 
     .secciones {
@@ -649,7 +655,7 @@ span {
 
     #contenido-principal {
         margin-left: 0;
-        margin-top: 15rem;
+        margin-top: 11rem;
         width: 100%;
         height: fit-content;
         padding: 1rem;
@@ -715,11 +721,30 @@ span {
         width: 100%;
         text-align: center;
     }
+    .foros > i, .titulo > i, .publicaciones>i {
+        font-size: 25px;
+        margin-top: 5px;
+    }
+    .card-editar-perfil{
+        margin-top: 1.5rem;
+    }
+    .MisForos, .MisPublicaciones {
+        margin: 1rem;
+    }
 }
 
 @media screen and (max-width: 425px) {
     .logo {
-        width: 50%;
+        width: 13%;
+    }
+    .Logo_mobile{
+        display: block;
+    }
+    .Logo_desk{
+        display: none;
+    }
+    .hidden-phone-data{
+        display: none;
     }
 
     .like-publicacion,
@@ -727,8 +752,48 @@ span {
         font-size: 18px;
         color: #1A3467;
     }
-
     .contenido-publicacion-imagen img {
         width: 100%;
+    }
+    .datos_Perfil p, .Nombre-pefil{
+        font-size: 10px;
+        text-align: center;
+    }
+    .SobremiPerfil{
+        padding-left: 0;
+    }
+    .card-misforos, .card-mispublicaciones {
+        width: 100%;
+    }
+    h5{
+        font-size: 15px !important;
+    }
+
+}
+
+@media screen and (max-width:375px){
+    h4{
+        font-size: 14px !;
+    }
+    h3{
+        font-size: 20px;
+    }
+    p{
+        font-size: 12px;
+    }
+    .card-publicaciones{
+        padding: 2rem;
+    }
+    .fecha-foro, .fecha-misforo{
+        font-size: 10px;
+    }
+    .dropdown-toggle-filtro,.nuevoforo-btn,.nuevapub-btn{
+        font-size: 18px;
+    }
+    .Mensaje-Foro{
+        font-size: 14px !important;
+    }
+    .btnMisPublicaciones, .btnMisForos{
+        font-size: 14px !important;
     }
 }

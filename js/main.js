@@ -130,7 +130,16 @@ const cargarMiPerfil = () =>{
     contenido_principal.style.marginLeft = "0%"; 
     contenido_principal.style.padding = "0rem";
     escribirForo.style.margin = "4rem";
-    publicarPub.style.marginLeft = "4rem"; 
+    publicarPub.style.margin = "4rem"; 
+
+    if(screen.width < 780){
+        contenido_principal.style.marginTop = "8rem";
+    }
+    if(screen.width < 430){
+        contenido_principal.style.marginTop = "7rem";
+        escribirForo.style.margin = "2rem";
+        publicarPub.style.margin = "2em"; 
+    }
 }
 
 const botonMisforos = document.getElementById("MisForos");
@@ -144,6 +153,7 @@ botonMisforos.addEventListener("click",(event) => {
     document.getElementById("MisForos_contenido").style.display = "";
     document.getElementById("MisPublicaciones").style.display = "none";
     publicarPub.style.display = "none"; 
+    escribirForo.style.display = "";
 });
 
 botonMisPublis.addEventListener("click", (e)=>{{
@@ -152,6 +162,7 @@ botonMisPublis.addEventListener("click", (e)=>{{
     document.getElementById("MisForos_contenido").style.display = "none";
     document.getElementById("MisPublicaciones").style.display = "";
     escribirForo.style.display = "none";
+    publicarPub.style.display = ""; 
 }})
 
 
@@ -201,6 +212,7 @@ const escribirnuevoforo = () => {
     document.title = "Nuevo foro"// Se agrega el nuevo titulo
     escribirForo.classList.remove("ESCRIBIR-FORO-OFF"); // se remueve la clase para ser mostrado
     foro.classList.add("FORO-OFF");
+    escribirForo.style.display = "";
 }
 
 
@@ -209,6 +221,7 @@ const escribirnuevapublicacion = () => {
     document.title = "Nuevo Publicación" // Se agrega el nuevo titulo
     publicarPub.classList.remove("ESCRIBIR-PUBLICACION-OFF"); // se remueve la clase para ser mostrado
     publicaciones.classList.add("PUBLICACIONES-OFF");
+    publicarPub.style.display = ""; 
 }
 
 // Preview de la imagen a cargar
