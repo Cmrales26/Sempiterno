@@ -446,8 +446,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class = 'comentar-foro'>
                <div class = 'CrearComentario CrearComentarioForo'>
                     <form method = 'POST' action = 'Main.php'>
-                        <input type = 'text' name ='texto_comentario_foro' class='texto_comentario_foro form-label' required placeholder='Escribir un comentario'/>
                         <input type = 'text' name ='temp_id_foro' class='texto_id_foro' readonly value = " . $temp_id_foro . ">
+                        <input type = 'text' name ='texto_comentario_foro' class='texto_comentario_foro' required placeholder='Escribir un comentario'/>
                         <input type ='submit' class='comentar_foro' value = 'Comentar' name='ComentarForo' id='ComentarForo' />
                     </form>
                </div>

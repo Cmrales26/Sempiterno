@@ -42,9 +42,9 @@
     <section id="contenedor-navbar">
         <nav>
             <div class="logo">
-                <a href="main.php" class="Logo_desk"><img src="../img/Logo.svg" alt="Logotipo Sempiterno"
+                <a href="Main.php" class="Logo_desk"><img src="../img/Logo.svg" alt="Logotipo Sempiterno"
                         width="50%"></a>
-                <a href="main.php" class="Logo_mobile"><img src="../img/Imagotipo.svg" alt="Logotipo Sempiterno"
+                <a href="Main.php" class="Logo_mobile"><img src="../img/Imagotipo.svg" alt="Logotipo Sempiterno"
                         width="50%"></a>
             </div>
             <div class="config">

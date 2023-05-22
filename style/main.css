@@ -626,9 +626,14 @@ span {
     color: #4791E0;
     cursor: pointer;
 }
-
-
 /* ! Visual Queryes responsive */
+
+@media  screen and (max-width:1200px){
+    .texto_comentario_foro{
+        width: 80%;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .filtro-foro {
         width: 50%;
@@ -637,6 +642,12 @@ span {
 
     .btn-iniciar>button {
         font-size: 16px;
+    }
+    #contenido-principal{
+        margin-top:7rem ;
+    }
+    #contenedor-sidebar{
+        margin-top:8rem ;
     }
 }
 
@@ -657,6 +668,9 @@ span {
     .miPerfil{
         margin-top: 5rem;
     }
+    .texto_comentario_foro{
+        width: 75%;
+    }
 }
 
 
@@ -664,6 +678,13 @@ span {
     #contenedor-navbar {
         position: fixed;
         z-index: 2;
+    }
+    .texto_comentario_foro{
+        width: calc(100% - 90px);
+        padding: .3rem;
+    }
+    .comentar_foro{
+        padding: .3rem;
     }
 
     .main {
@@ -800,7 +821,7 @@ span {
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 470px) {
     .logo {
         width: 13%;
     }
@@ -840,27 +861,35 @@ span {
 
 @media screen and (max-width:375px){
     h4{
-        font-size: 14px !;
+        font-size: 14px !important;
     }
     h3{
-        font-size: 20px;
+        font-size: 20px !important;
     }
     p{
-        font-size: 12px;
+        font-size: 12px !important;
     }
     .card-publicaciones{
-        padding: 2rem;
+        padding: 2rem !important;
     }
     .fecha-foro, .fecha-misforo{
-        font-size: 10px;
+        font-size: 10px !important;
     }
     .dropdown-toggle-filtro,.nuevoforo-btn,.nuevapub-btn{
-        font-size: 18px;
+        font-size: 18px !important;
     }
     .Mensaje-Foro{
         font-size: 14px !important;
     }
     .btnMisPublicaciones, .btnMisForos{
         font-size: 14px !important;
+    }
+    .texto_comentario_foro, .comentar_foro{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 320px){
+    .texto_comentario_foro{
+        width: 66%;
     }
 }
