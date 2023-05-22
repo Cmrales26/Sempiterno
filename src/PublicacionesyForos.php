@@ -196,7 +196,7 @@ function obtenerPublicacion()
                             <div class='like-publicacion'>
                                 <i class='fa-regular fa-heart'></i> Likes: 3
                             </div>
-                            <div class='comentar-publicacio'>
+                            <div class='comentar-publicacion'>
                                 <i class='fa-regular fa-comment'></i> Comentar
                             </div>
                         </div>

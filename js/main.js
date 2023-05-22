@@ -48,6 +48,9 @@ const cargarForo = () => {
     sidebar.classList.remove("contenedor-sidebar-OFF");
     escribirForo.style.margin = "";
     publicarPub.style.marginLeft = ""; 
+    contenido_principal.style.marginTop = "";
+    escribirForo.style.margin = "";
+    publicarPub.style.margin = ""; 
 }
 const cargarPublicaiones = () => {
     MiPerfil.classList.add("miPerfil-off");
@@ -71,6 +74,9 @@ const cargarPublicaiones = () => {
     sidebar.classList.remove("contenedor-sidebar-OFF");
     escribirForo.style.margin = "";
     publicarPub.style.marginLeft = ""; 
+    contenido_principal.style.marginTop = "";
+    escribirForo.style.margin = "";
+    publicarPub.style.margin = ""; 
 }
 const cargarEditarPerfil = () => {
     MiPerfil.classList.add("miPerfil-off");
@@ -91,6 +97,9 @@ const cargarEditarPerfil = () => {
     contenido_principal.style.padding = "";
     escribirForo.style.margin = "";
     publicarPub.style.marginLeft = ""; 
+    contenido_principal.style.marginTop = "";
+    escribirForo.style.margin = "";
+    publicarPub.style.margin = ""; 
 }
 const cargarCambiarContrasena = () => {
     MiPerfil.classList.add("miPerfil-off");
@@ -110,7 +119,10 @@ const cargarCambiarContrasena = () => {
     contenido_principal.style.marginLeft = "";
     contenido_principal.style.padding = "";
     escribirForo.style.margin = "";
-    publicarPub.style.marginLeft = ""; 
+    publicarPub.style.marginLeft = "";
+    contenido_principal.style.marginTop = "";
+    escribirForo.style.margin = "";
+    publicarPub.style.margin = ""; 
 }
 
 const cargarMiPerfil = () =>{
@@ -136,7 +148,6 @@ const cargarMiPerfil = () =>{
         contenido_principal.style.marginTop = "8rem";
     }
     if(screen.width < 430){
-        contenido_principal.style.marginTop = "7rem";
         escribirForo.style.margin = "2rem";
         publicarPub.style.margin = "2em"; 
     }
