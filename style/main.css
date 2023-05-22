@@ -211,17 +211,21 @@ span {
 .card-foro {
     border-radius: 10px;
     background-color: white;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
     padding: 2rem;
     margin-bottom: 2rem;
     cursor: pointer;
 }
+.card-foro-uniq{
+    margin-bottom: 0rem !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
 
 .info-foro {
-    /* border: 1px solid red; */
-    width: 80%;
+    padding: .5rem;
+    width: 100%;
 }
 
 .vermas-foro {
@@ -322,7 +326,67 @@ span {
     transition: all 0.3s ease-in-out;
     border-radius: 10px;
 }
-
+.texto_comentario_foro{
+    width: 85%;
+    border: none !important;
+    padding: .8rem;
+    background: #4791e06c;
+    border-radius: 10px;
+}
+.comentar_foro{
+    padding: .8rem;
+    border: none;
+    background-color: #1A3467;
+    color: white !important;
+    border-radius:10px ;
+}
+.Comentarios-foro-null{
+    padding-bottom: 2rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: white !important;
+    text-align: center;
+    color: #696767;
+}
+.Contenedor_comentario{
+    background: white !important;
+}
+.Contenedor_comentario:last-child{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.Contenido_Comentario > p, .Usuario-comentario-foro > p{
+    margin-bottom: 0rem;
+}
+.Usuario-comentario-foro > p{
+    font-size: 12px;
+    color: gray !important;
+    line-height: 0;
+}
+.Usuario-comentario-foro > h5{
+    color: #1A3467;
+}
+/* .Contenedor_comentario:first-child */
+.Comentario_uniq{
+    margin-top: -.8rem;
+    padding-left: 3.5rem;
+    padding-bottom: 1.2rem;
+}
+.tituloComentario{
+    background-color: white !important;
+    padding-left: 2rem; ;
+    color: #1A3467;
+    padding-bottom: 1.5rem;
+}
+.SepararComentario{
+    width: 65%;
+}
+.tituloComentario > h4{
+    margin-bottom: 0rem !important;
+}
+.Contenido_Comentario{
+    margin-top: .8rem;
+}
 .Modificar:hover,
 .Modificar-contrasena:hover,
 .publicar-foro:hover {
@@ -335,6 +399,9 @@ span {
     color: #1A3467;
     font-size: 25px;
     transition: all 0.3s ease-in-out
+}
+.texto_id_foro {
+    display: none !important;
 }
 
 .ModificarCuenta,

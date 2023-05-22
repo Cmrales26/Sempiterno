@@ -47,10 +47,10 @@ const cargarForo = () => {
     contenido_principal.style.padding = "";
     sidebar.classList.remove("contenedor-sidebar-OFF");
     escribirForo.style.margin = "";
-    publicarPub.style.marginLeft = ""; 
+    publicarPub.style.marginLeft = "";
     contenido_principal.style.marginTop = "";
     escribirForo.style.margin = "";
-    publicarPub.style.margin = ""; 
+    publicarPub.style.margin = "";
 }
 const cargarPublicaiones = () => {
     MiPerfil.classList.add("miPerfil-off");
@@ -73,10 +73,10 @@ const cargarPublicaiones = () => {
     contenido_principal.style.padding = "";
     sidebar.classList.remove("contenedor-sidebar-OFF");
     escribirForo.style.margin = "";
-    publicarPub.style.marginLeft = ""; 
+    publicarPub.style.marginLeft = "";
     contenido_principal.style.marginTop = "";
     escribirForo.style.margin = "";
-    publicarPub.style.margin = ""; 
+    publicarPub.style.margin = "";
 }
 const cargarEditarPerfil = () => {
     MiPerfil.classList.add("miPerfil-off");
@@ -96,10 +96,10 @@ const cargarEditarPerfil = () => {
     contenido_principal.style.marginLeft = "";
     contenido_principal.style.padding = "";
     escribirForo.style.margin = "";
-    publicarPub.style.marginLeft = ""; 
+    publicarPub.style.marginLeft = "";
     contenido_principal.style.marginTop = "";
     escribirForo.style.margin = "";
-    publicarPub.style.margin = ""; 
+    publicarPub.style.margin = "";
 }
 const cargarCambiarContrasena = () => {
     MiPerfil.classList.add("miPerfil-off");
@@ -122,10 +122,10 @@ const cargarCambiarContrasena = () => {
     publicarPub.style.marginLeft = "";
     contenido_principal.style.marginTop = "";
     escribirForo.style.margin = "";
-    publicarPub.style.margin = ""; 
+    publicarPub.style.margin = "";
 }
 
-const cargarMiPerfil = () =>{
+const cargarMiPerfil = () => {
     MiPerfil.classList.remove("miPerfil-off");
     foro.classList.add("FORO-OFF"); // se agrega la clase foro off ocultarla
     iniciar_pub.classList.add("iniciarnuevapublicacion-off"); // Se eliminar el boton inicar publicacion
@@ -139,17 +139,17 @@ const cargarMiPerfil = () =>{
     sidebar.classList.add("contenedor-sidebar-OFF");
     contenido_principal.style.width = "100%";  // Modificación del ancho de la seccion al entrar en la vista de perfil
     // remocion de las margenes y paddings en vista mi pefil
-    contenido_principal.style.marginLeft = "0%"; 
+    contenido_principal.style.marginLeft = "0%";
     contenido_principal.style.padding = "0rem";
     escribirForo.style.margin = "4rem";
-    publicarPub.style.margin = "4rem"; 
+    publicarPub.style.margin = "4rem";
 
-    if(screen.width < 780){
+    if (screen.width < 780) {
         contenido_principal.style.marginTop = "8rem";
     }
-    if(screen.width < 430){
+    if (screen.width < 430) {
         escribirForo.style.margin = "2rem";
-        publicarPub.style.margin = "2em"; 
+        publicarPub.style.margin = "2em";
     }
 }
 
@@ -158,23 +158,25 @@ const botonMisPublis = document.getElementById("MisPublis");
 botonMisforos.style.color = "#1A3467";
 document.getElementById("MisPublicaciones").style.display = "none";
 
-botonMisforos.addEventListener("click",(event) => {
+botonMisforos.addEventListener("click", (event) => {
     botonMisforos.style.color = "#1A3467";
     botonMisPublis.style.color = "#b4afaf";
     document.getElementById("MisForos_contenido").style.display = "";
     document.getElementById("MisPublicaciones").style.display = "none";
-    publicarPub.style.display = "none"; 
+    publicarPub.style.display = "none";
     escribirForo.style.display = "";
 });
 
-botonMisPublis.addEventListener("click", (e)=>{{
-    botonMisforos.style.color = "#b4afaf";
-    botonMisPublis.style.color = "#1A3467";
-    document.getElementById("MisForos_contenido").style.display = "none";
-    document.getElementById("MisPublicaciones").style.display = "";
-    escribirForo.style.display = "none";
-    publicarPub.style.display = ""; 
-}})
+botonMisPublis.addEventListener("click", (e) => {
+    {
+        botonMisforos.style.color = "#b4afaf";
+        botonMisPublis.style.color = "#1A3467";
+        document.getElementById("MisForos_contenido").style.display = "none";
+        document.getElementById("MisPublicaciones").style.display = "";
+        escribirForo.style.display = "none";
+        publicarPub.style.display = "";
+    }
+})
 
 
 // ! MODIFICAICION DEL DOM EN LA SECCION MI PEFIL
@@ -207,9 +209,9 @@ for (var i = 0; i < perfil_menu.length; i++) {
         index = tab.indexOf(this.innerHTML); // Le asigno el valor de this a la variable aulixiar index
 
         //COMPARO PARA REALIZAR LA FUNCIONES PARA CADA UNO DE LOS CASOS
-        if (this.innerHTML == "Mi perfil"){
+        if (this.innerHTML == "Mi perfil") {
             cargarMiPerfil();
-        }else if (this.innerHTML === "Editar Perfil") { // En caso de dar clic en editar perfil
+        } else if (this.innerHTML === "Editar Perfil") { // En caso de dar clic en editar perfil
             cargarEditarPerfil(); //Carga la funcion editar perfil
         } else if (this.innerHTML === "Cambiar Contraseña") { // En caso de dar clic en cambiar contraseña
             cargarCambiarContrasena(); // Cargar la funcion cambiar contraseña
@@ -232,7 +234,7 @@ const escribirnuevapublicacion = () => {
     document.title = "Nuevo Publicación" // Se agrega el nuevo titulo
     publicarPub.classList.remove("ESCRIBIR-PUBLICACION-OFF"); // se remueve la clase para ser mostrado
     publicaciones.classList.add("PUBLICACIONES-OFF");
-    publicarPub.style.display = ""; 
+    publicarPub.style.display = "";
 }
 
 // Preview de la imagen a cargar
@@ -251,11 +253,19 @@ const showPreview = (event) => {
     }
 }
 
-function obtenerIdDeClicPorClase(className) {
-    var elementos = document.getElementsByClassName(className);
+
+$(document).ready(function () {
+    var elementos = document.getElementsByClassName("card-foro");
     for (var i = 0; i < elementos.length; i++) {
         elementos[i].addEventListener('click', function () {
-            return this.id
+            $.ajax({
+                url: "../src/PublicacionesyForos.php",
+                type: "POST",
+                data: { id: this.id },
+                success: function (response) {
+                    document.getElementById("ContenedorForos").innerHTML = response;
+                }
+            });
         });
     }
-}
+});

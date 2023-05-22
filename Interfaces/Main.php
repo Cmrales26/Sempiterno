@@ -17,6 +17,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style/main.css">
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Document</title>
 </head>
@@ -26,6 +27,7 @@
     session_start();
     include '../src/CdMain.php';
     include '../src/Conexion.php';
+    include("../src/PublicacionesyForos.php");
     $id = $_SESSION['Identificación'];
     $nombre = $_SESSION['Nombre'];
     $apellido = $_SESSION['Apellido'];
@@ -36,15 +38,14 @@
         $_SESSION["Sempiterno"] = "Nuevo Inicio";
     }
     ;
-    include("../src/PublicacionesyForos.php");
     ?>
-
-
     <section id="contenedor-navbar">
         <nav>
             <div class="logo">
-                <a href="main.php" class="Logo_desk"><img src="../img/Logo.svg" alt="Logotipo Sempiterno" width="50%"></a>
-                <a href="main.php" class="Logo_mobile"><img src="../img/Imagotipo.svg" alt="Logotipo Sempiterno" width="50%"></a>
+                <a href="main.php" class="Logo_desk"><img src="../img/Logo.svg" alt="Logotipo Sempiterno"
+                        width="50%"></a>
+                <a href="main.php" class="Logo_mobile"><img src="../img/Imagotipo.svg" alt="Logotipo Sempiterno"
+                        width="50%"></a>
             </div>
             <div class="config">
                 <div class="icon-notificacion">
@@ -106,8 +107,8 @@
                 <div class="filtro-foro">
 
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle dropdown-toggle-filtro" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <button class="btn dropdown-toggle dropdown-toggle-filtro" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Filtro
                         </button>
                         <ul class="dropdown-menu" id="dropdown-perfil">
@@ -127,9 +128,11 @@
                         <i class="fa-solid fa-plus"></i> Nuevo Foro
                     </div>
                 </div>
-                <?php
-                obtenerForo();
-                ?>
+                <div class="ContenedorForos" id="ContenedorForos">
+                    <?php
+                    obtenerForo();
+                    ?>
+                </div>
             </section>
 
             <section id="PUBLICACIONES">
@@ -232,7 +235,8 @@
                     <div class="SobremiPerfil">
                         <div class="Nombre-pefil">
                             <h1>
-                            <a href="Main.php" style="text-decoration: none; color:white; cursor: pointer"><i class="fa-solid fa-arrow-left"></i></a>
+                                <a href="Main.php" style="text-decoration: none; color:white; cursor: pointer"><i
+                                        class="fa-solid fa-arrow-left"></i></a>
                                 <?= $nombre ?>
                                 <?= $apellido ?>
                             </h1>
@@ -256,15 +260,15 @@
 
                 <div class="MisForos" id="MisForos_contenido">
                     <?php
-                        obtenermisForo();
+                    obtenermisForo();
                     ?>
                 </div>
 
 
 
-                <div class = "MisPublicaciones" id="MisPublicaciones">
+                <div class="MisPublicaciones" id="MisPublicaciones">
                     <?php
-                     obtenermisPublicaciones();
+                    obtenermisPublicaciones();
                     ?>
                 </div>
             </section>
@@ -332,9 +336,9 @@
     </div>
     <script src="../js/main.js"></script>
     <script>
-        if (window.history.replaceState) {
-            window.history.replaceState(null, null, window.location.href);
-        }
+        // if (window.history.replaceState) {
+        //     window.history.replaceState(null, null, window.location.href);
+        // }
     </script>
 </body>
 
