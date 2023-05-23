@@ -28,14 +28,28 @@
     include '../src/CdMain.php';
     include '../src/Conexion.php';
     include("../src/PublicacionesyForos.php");
-    $id = $_SESSION['Identificación'];
-    $nombre = $_SESSION['Nombre'];
-    $apellido = $_SESSION['Apellido'];
-    $telefono = $_SESSION['Telefono'];
-    $fechaNacimiento = $_SESSION['FechaNacimiento'];
-    $edad = $_SESSION['edad'];
-    if (!isset($_SESSION["Sempiterno"])) {
-        $_SESSION["Sempiterno"] = "Nuevo Inicio";
+    if (!isset($_SESSION["Identificación"])) {
+        echo "<script> Swal.fire({
+            title: '😕',
+            icon:'info',
+            showDenyButton: false,
+            showCancelButton: false,
+            text: 'Su Sesión Ha Expirado, Inicie Nuevamente',
+            confirmButtonText: 'Ok',
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                window.location.href = '../index.php'; 
+            } 
+          })
+          </script>";
+    } else {
+        $id = $_SESSION['Identificación'];
+        $nombre = $_SESSION['Nombre'];
+        $apellido = $_SESSION['Apellido'];
+        $telefono = $_SESSION['Telefono'];
+        $fechaNacimiento = $_SESSION['FechaNacimiento'];
+        $edad = $_SESSION['edad'];
     }
     ;
     ?>
@@ -336,9 +350,9 @@
     </div>
     <script src="../js/main.js"></script>
     <script>
-        // if (window.history.replaceState) {
-        //     window.history.replaceState(null, null, window.location.href);
-        // }
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
     </script>
 </body>
 
