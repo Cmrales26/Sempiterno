@@ -346,10 +346,10 @@ function obtenermisPublicaciones()
             <hr>
             <div class='acciones-publicaciones'>
                 <div class='like-publicacion'>
-                    <i class='fa-regular fa-heart'></i> like
+                    <i class='fa-regular fa-heart'></i>
                 </div>
                 <div class='comentar-publicacion'>
-                    <i class='fa-regular fa-comment'></i> Comentar
+                    <i class='fa-regular fa-comment'></i>
                 </div>
             </div>
         </div>
@@ -402,10 +402,10 @@ function obtenermisPublicaciones()
         <hr>
         <div class='acciones-publicaciones'>
             <div class='like-publicacion'>
-                <i class='fa-regular fa-heart'></i> like
+                <i class='fa-regular fa-heart'></i>
             </div>
             <div class='comentar-publicacion'>
-                <i class='fa-regular fa-comment'></i> Comentar
+                <i class='fa-regular fa-comment'></i>
             </div>
         </div>
     </div>

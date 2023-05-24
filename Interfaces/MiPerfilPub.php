@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Mis Foros</title>
+    <title>Mis Publicaciones</title>
 </head>
 
 <body>
@@ -113,18 +113,16 @@
                 </div>
                 <div class="ContenidoPrincipal">
                     <div class="Secciones-Perfil">
-                        <button type="button" class="btnMisForos" id="MisForos" style="color: #1a3467">Mis Foros</button>
-                        <button type="button" class="btnMisPublicaciones" onclick="window.location.replace('MiPerfilPub.php')" id="MisPublis">Mis Publicaciones</button>
+                        <button type="button" class="btnMisForos" onclick="window.location.replace('MiPerfil.php')" id="MisForos" >Mis Foros</button>
+                        <button type="button" class="btnMisPublicaciones" id="MisPublis" style="color: #1a3467">Mis Publicaciones</button>
                     </div>
                 </div>
 
-
-                <div class="MisForos" id="MisForos_contenido">
+                <div class="MisPublicaciones" id="MisPublicaciones">
                     <?php
-                    obtenermisForo();
+                    obtenermisPublicaciones();
                     ?>
                 </div>
-
             </section>
         </div>
     </div>
