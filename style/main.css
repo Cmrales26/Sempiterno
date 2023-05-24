@@ -14,7 +14,6 @@ body::-webkit-scrollbar {
     background-color: transparent;
     width: 10px;
 }
-
 body::-webkit-scrollbar-thumb {
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
@@ -22,13 +21,20 @@ body::-webkit-scrollbar-thumb {
     background-color: #CBAC5A;
     min-height: 2px;
 }
+.NuevaPestana{
+    text-decoration: none;
+}
+.side-nuevapestaña{
+    color: #1A3467;
+}
+
 .Logo_mobile{
     display: none;
 }
 
 #contenedor-navbar {
     position: fixed;
-    z-index: 1;
+    z-index: 99;
     width: 100%;
 }
 
@@ -284,18 +290,62 @@ span {
 
 .contenido-publicacion-imagen img {
     border-radius: 10px;
-    width: 85%;
+    width: 500px;
+}
+#ComentarPublicacion{
+    border: none;
+    background:#4791E0;
+    color: white;
+    border-radius:10px ;
+    padding: .5rem;
+}
+.Comentario-content{
+    height: 10px !important;
+    max-height: 50px !important;
+}
+.Comentar-comentario{
+    padding: 0;
+    z-index: 1;
+    padding: 1.5rem;
+    width: 45.5%;
+    background-color: white;
+    margin-bottom:1.5rem ;
+    position: absolute;
+}
+.card-Comentario-pub{
+    width: 50%;
+    border-left: 3px solid #1A3467;
+    height: fit-content;
+    max-height: 820px;
+    overflow: auto;
+}
+
+.card-Comentario-pub::-webkit-scrollbar {
+    background-color: white !important;
+    width: 10px;
+}
+.card-Comentario-pub::-webkit-scrollbar-thumb {
+    /* border-radius: 10px; */
+    cursor: pointer;
+    background-color: #CBAC5A;
+    min-height: 2px;
 }
 
 .acciones-publicaciones {
     display: flex;
-    justify-content: space-around;
+    gap: 5%;
+}
+.card-Comentario-pub  h4{
+    color: #1A3467;
 }
 
 .like-publicacion,
 .comentar-publicacion {
-    font-size: 25px;
+    font-size: 35px;
     cursor: pointer;
+}
+#Silike{
+    display: none;
 }
 
 /* ! ESTILO EDITAR PERDIL */
@@ -350,6 +400,7 @@ span {
 }
 .Contenedor_comentario{
     background: white !important;
+    padding-left: 1.5rem;
 }
 .Contenedor_comentario:last-child{
     border-bottom-left-radius: 10px;
@@ -367,10 +418,14 @@ span {
     color: #1A3467;
 }
 /* .Contenedor_comentario:first-child */
-.Comentario_uniq{
+.Comentario_uniq, .Comentario_uniq-pub{
     margin-top: -.8rem;
     padding-left: 3.5rem;
     padding-bottom: 1.2rem;
+}
+.Comentario_uniq-pub{
+    margin-top: 0;
+    padding-left: 1.5rem;
 }
 .tituloComentario{
     background-color: white !important;
@@ -400,13 +455,15 @@ span {
     font-size: 25px;
     transition: all 0.3s ease-in-out
 }
-.texto_id_foro {
+.texto_id_foro,.texto_id_pub{
     display: none !important;
 }
 
-.ModificarCuenta,
-.boton-cambiar-contrasena {
+.ModificarCuenta{
     margin-right: 4rem;
+}
+.boton-cambiar-contrasena{
+    margin-right: 5rem;
 }
 
 /* !DISEÑO CAMBIAR CONTRASEÑA */
@@ -633,6 +690,12 @@ span {
         width: 80%;
     }
 }
+@media screen and (max-width:1070px){
+    .card-Comentario-pub{
+        width: 100%;
+        border-left: none !important;
+    }
+}
 
 @media screen and (max-width: 1024px) {
     .filtro-foro {
@@ -677,7 +740,7 @@ span {
 @media screen and (max-width:768px) {
     #contenedor-navbar {
         position: fixed;
-        z-index: 2;
+        /* z-index: 2; */
     }
     .texto_comentario_foro{
         width: calc(100% - 90px);
@@ -693,7 +756,7 @@ span {
 
     #contenedor-sidebar {
         position: fixed;
-        z-index: 1;
+        z-index: 2;
         width: 100%;
         max-width: 100%;
         height: 1px;
@@ -797,9 +860,8 @@ span {
         justify-content: space-between;
     }
 
-    #Fecha_cierre,
-    #Hora_cierre {
-        width: 45% !important;
+    #Fecha_cierre{
+        width: 100% !important;
         gap: 20px;
         color: #1A3467;
         margin-left: 0;
@@ -818,6 +880,12 @@ span {
     }
     .MisForos, .MisPublicaciones {
         margin: 1rem;
+    }
+    .Comentar-comentario{
+        width: calc(100% - 45px);
+    }
+    .Comentar-comentario form{
+        font-size: 12px;
     }
 }
 
@@ -855,6 +923,14 @@ span {
     }
     h5{
         font-size: 15px !important;
+    }
+    .ModificarCuenta{
+        font-size: 12px;
+        margin-right: 4rem;
+    }
+    .boton-cambiar-contrasena{
+        font-size: 12px;
+        margin-right: 5rem;
     }
 
 }

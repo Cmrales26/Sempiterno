@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Foros</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -28,7 +28,6 @@
     include '../src/CdMain.php';
     include '../src/Conexion.php';
     include("../src/PublicacionesyForos.php");
-    include("../src/ComentarioForo.php");
     if (!isset($_SESSION["Identificación"])) {
         echo "<script> Swal.fire({
             title: '😕',
@@ -54,7 +53,7 @@
     }
     ;
     ?>
-    <div id="contenedor-navbar">
+    <section id="contenedor-navbar">
         <nav>
             <div class="logo">
                 <a href="Main.php" class="Logo_desk"><img src="../img/Logo.svg" alt="Logotipo Sempiterno"
@@ -90,19 +89,17 @@
                 </div>
             </div>
         </nav>
-    </div>
+    </section>
 
     <div class="main">
         <section id="contenedor-sidebar">
-            <div class="btn-iniciar">
-                <button id="iniciarnuevoforo" onclick="window.location.replace('NuevoForo.php')">Iniciar Nuevo
-                    Foro</button>
-            </div>
             <div class="secciones">
+                <a class="NuevaPestana side-nuevapestaña" href="Main.php">
+                    <div class="foros">
+                        <i class="fa-solid fa-comments"></i><span id="under_pub">FOROS</span>
+                    </div>
+                </a>
 
-                <div class="foros" style="color:#CBAC5A">
-                    <i class="fa-solid fa-comments"></i><span id="under_foro">FOROS</span>
-                </div>
                 <a class="NuevaPestana side-nuevapestaña" href="Publicaciones.php">
                     <div class="publicaciones mt-4">
                         <i class="fa-solid fa-book-bible "></i><span id="under_pub">PUBLICACIONES</span>
@@ -122,45 +119,44 @@
         </section>
 
         <div id="contenido-principal">
-            <section id="FORO">
-                <div class="filtro-foro">
+            <section id="CAMBIAR-CONTRASENA">
+                <div class="card-cambiar-contrasena">
+                    <div class="volver-foro" onclick="window.location.replace('Main.php')">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <h1 style="color: #1a3467;">Modificar contraseña</h1>
 
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle dropdown-toggle-filtro" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Filtro
-                        </button>
-                        <ul class="dropdown-menu" id="dropdown-perfil">
-                            <li class="dropdown-item">
-                                <form method="post" action="Main.php" id="MasReciente">
-                                    <input type="submit" name="MasReciente" value="Mas Reciente" class="MasReciente">
-                                </form>
-                            </li>
-                            <li class="dropdown-item">
-                                <form method="post" action="Main.php" id="MasAntiguo">
-                                    <input type="submit" name="MasAntiguo" value="Mas Antiguo" class="MasAntiguo">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nuevoforo-btn" onclick="window.location.replace('../Interfaces/NuevoForo.php')">
-                        <i class="fa-solid fa-plus"></i> Nuevo Foro
-                    </div>
-                </div>
-                <div class="ContenedorForos" id="ContenedorForos">
-                    <?php
-                    obtenerForo();
-                    ?>
+                    <form method="post" action="Main.php">
+                        <div class="mb-3">
+                            <label for="Contrasena-antigua" class="form-label">Contraseña Actual</label>
+                            <input type="password" class="form-control" id="Contrasena-antigua"
+                                name="Contrasena_antigua" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Contrasena-nueva" class="form-label">NuevaContraseña</label>
+                            <input type="password" class="form-control" id="Contrasena-nueva" name="Contrasena_nueva"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Vali_Contrasena-nueva" class="form-label">Validar Contraseña</label>
+                            <input type="password" class="form-control" id="Vali_Contrasena-nueva"
+                                name="Vali_Contrasena_nueva" required>
+                        </div>
+                        <div class="botones">
+                            <div class="boton-cambiar-contrasena">
+                                <input type="submit" value="Cambiar Contraseña" class="Modificar-contrasena"
+                                    name="Modificar_contrasena">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </section>
         </div>
     </div>
-    <script src="../js/Funcionalidades-Foro.js"></script>
+
     <script>
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
     </script>
 </body>
-
-</html>

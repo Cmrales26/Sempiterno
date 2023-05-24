@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Foros</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -28,7 +28,6 @@
     include '../src/CdMain.php';
     include '../src/Conexion.php';
     include("../src/PublicacionesyForos.php");
-    include("../src/ComentarioForo.php");
     if (!isset($_SESSION["Identificación"])) {
         echo "<script> Swal.fire({
             title: '😕',
@@ -54,7 +53,7 @@
     }
     ;
     ?>
-    <div id="contenedor-navbar">
+    <section id="contenedor-navbar">
         <nav>
             <div class="logo">
                 <a href="Main.php" class="Logo_desk"><img src="../img/Logo.svg" alt="Logotipo Sempiterno"
@@ -90,14 +89,10 @@
                 </div>
             </div>
         </nav>
-    </div>
+    </section>
 
     <div class="main">
         <section id="contenedor-sidebar">
-            <div class="btn-iniciar">
-                <button id="iniciarnuevoforo" onclick="window.location.replace('NuevoForo.php')">Iniciar Nuevo
-                    Foro</button>
-            </div>
             <div class="secciones">
 
                 <div class="foros" style="color:#CBAC5A">
@@ -122,45 +117,33 @@
         </section>
 
         <div id="contenido-principal">
-            <section id="FORO">
-                <div class="filtro-foro">
+            <section id="ESCRIBIR-FORO">
+                <div class="contenedor-escribir-foro">
+                    <div class="volver-foro" onclick="window.location.replace('Main.php')">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <h3 style="color: #1a3467; text-align: center;">NUEVO FORO</h3>
 
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle dropdown-toggle-filtro" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Filtro
-                        </button>
-                        <ul class="dropdown-menu" id="dropdown-perfil">
-                            <li class="dropdown-item">
-                                <form method="post" action="Main.php" id="MasReciente">
-                                    <input type="submit" name="MasReciente" value="Mas Reciente" class="MasReciente">
-                                </form>
-                            </li>
-                            <li class="dropdown-item">
-                                <form method="post" action="Main.php" id="MasAntiguo">
-                                    <input type="submit" name="MasAntiguo" value="Mas Antiguo" class="MasAntiguo">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nuevoforo-btn" onclick="window.location.replace('../Interfaces/NuevoForo.php')">
-                        <i class="fa-solid fa-plus"></i> Nuevo Foro
-                    </div>
-                </div>
-                <div class="ContenedorForos" id="ContenedorForos">
-                    <?php
-                    obtenerForo();
-                    ?>
+                    <form method="post" action="Main.php">
+                        <div class="asunto-escribir-foro">
+                            <label for="asunto-foro" class="label-asunto">Asunto:</label>
+                            <input type="text" id="asunto-foro" name="Asunto" required>
+                        </div>
+                        <div class="descripcion-escribir-foro">
+                            <p class="label-descripcion">Descripción:</p>
+                            <textarea name="Descripcion" id="descripcion-foro" required></textarea>
+                        </div>
+                        <label for="Fecha_cierre" class="label-fecha-cierre-mobile">Fecha de cierre del foro:</label>
+                        <div class="fecha-escribir-foro">
+                            <label for="Fecha_cierre" class="label-fecha-cierre">Fecha de cierre del foro:</label>
+                            <input type="datetime-local" name="Fecha_cierre" id="Fecha_cierre" required>
+                        </div>
+                        <div class="btn-publicar-foro">
+                            <input type="submit" value="Publicar Foro" class="publicar-foro" name="PublicarForo">
+                        </div>
+                    </form>
                 </div>
             </section>
         </div>
     </div>
-    <script src="../js/Funcionalidades-Foro.js"></script>
-    <script>
-        if (window.history.replaceState) {
-            window.history.replaceState(null, null, window.location.href);
-        }
-    </script>
 </body>
-
-</html>

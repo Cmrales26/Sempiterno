@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#contenido-principal{
+    padding: 0;
+    margin-left: 0;
+    width: 100%;
+}
+@media screen and (max-width: 768px){
+    #contenido-principal{
+        margin-top: 7.3rem;
+    }
+}

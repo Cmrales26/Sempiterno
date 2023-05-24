@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Foros</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -27,8 +27,9 @@
     session_start();
     include '../src/CdMain.php';
     include '../src/Conexion.php';
-    include("../src/PublicacionesyForos.php");
-    include("../src/ComentarioForo.php");
+    include '../src/PublicacionesyForos.php';
+    include '../src/Like_Comentario.php';
+
     if (!isset($_SESSION["Identificación"])) {
         echo "<script> Swal.fire({
             title: '😕',
@@ -54,7 +55,7 @@
     }
     ;
     ?>
-    <div id="contenedor-navbar">
+    <section id="contenedor-navbar">
         <nav>
             <div class="logo">
                 <a href="Main.php" class="Logo_desk"><img src="../img/Logo.svg" alt="Logotipo Sempiterno"
@@ -90,24 +91,25 @@
                 </div>
             </div>
         </nav>
-    </div>
+    </section>
 
     <div class="main">
         <section id="contenedor-sidebar">
             <div class="btn-iniciar">
-                <button id="iniciarnuevoforo" onclick="window.location.replace('NuevoForo.php')">Iniciar Nuevo
-                    Foro</button>
+                <button id="iniciarnuevapublicacion" onclick="window.location.replace('NuevaPublicacion.php')">Crear
+                    Nueva
+                    Publicación</button>
             </div>
             <div class="secciones">
-
-                <div class="foros" style="color:#CBAC5A">
-                    <i class="fa-solid fa-comments"></i><span id="under_foro">FOROS</span>
+                <a class="NuevaPestana side-nuevapestaña" href="Main.php">
+                <div class="foros">
+                    <i class="fa-solid fa-comments"></i><span
+                            id="under_pub">FOROS</span>
                 </div>
-                <a class="NuevaPestana side-nuevapestaña" href="Publicaciones.php">
-                    <div class="publicaciones mt-4">
-                        <i class="fa-solid fa-book-bible "></i><span id="under_pub">PUBLICACIONES</span>
-                    </div>
                 </a>
+                <div class="publicaciones  mt-4" style = "color:#CBAC5A">
+                    <i class="fa-solid fa-book-bible "></i> <span id="under_pub">PUBLICACIONES</span>
+                </div>
                 <hr class="separador-secciones">
                 <div class="titulo">
                     <i class="fa-solid fa-people-roof"></i> <span id="under_grup">GRUPOS</span>
@@ -122,45 +124,24 @@
         </section>
 
         <div id="contenido-principal">
-            <section id="FORO">
-                <div class="filtro-foro">
+            <section id="PUBLICACIONES">
+                
+                    <div class="nuevapub-btn" id="nuevapub-btn" onclick="window.location.replace('../Interfaces/NuevaPublicacion.php')" style = "margin-bottom: 1.5rem">
+                        <i class="fa-solid fa-plus"></i> Nueva Publicación
+                    </div>
 
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle dropdown-toggle-filtro" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Filtro
-                        </button>
-                        <ul class="dropdown-menu" id="dropdown-perfil">
-                            <li class="dropdown-item">
-                                <form method="post" action="Main.php" id="MasReciente">
-                                    <input type="submit" name="MasReciente" value="Mas Reciente" class="MasReciente">
-                                </form>
-                            </li>
-                            <li class="dropdown-item">
-                                <form method="post" action="Main.php" id="MasAntiguo">
-                                    <input type="submit" name="MasAntiguo" value="Mas Antiguo" class="MasAntiguo">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nuevoforo-btn" onclick="window.location.replace('../Interfaces/NuevoForo.php')">
-                        <i class="fa-solid fa-plus"></i> Nuevo Foro
-                    </div>
-                </div>
-                <div class="ContenedorForos" id="ContenedorForos">
+                <div class="ContenedorPublis" id="ContenedorPublis">
                     <?php
-                    obtenerForo();
+                        obtenerPublicacion()
                     ?>
                 </div>
             </section>
         </div>
     </div>
-    <script src="../js/Funcionalidades-Foro.js"></script>
+    <script src="../js/Funcionalidades-Publicaciones.js"></script>
     <script>
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
     </script>
 </body>
-
-</html>

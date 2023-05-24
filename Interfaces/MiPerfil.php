@@ -16,10 +16,11 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/Myperfil.css">
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Foros</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -28,7 +29,6 @@
     include '../src/CdMain.php';
     include '../src/Conexion.php';
     include("../src/PublicacionesyForos.php");
-    include("../src/ComentarioForo.php");
     if (!isset($_SESSION["Identificación"])) {
         echo "<script> Swal.fire({
             title: '😕',
@@ -54,7 +54,7 @@
     }
     ;
     ?>
-    <div id="contenedor-navbar">
+    <section id="contenedor-navbar">
         <nav>
             <div class="logo">
                 <a href="Main.php" class="Logo_desk"><img src="../img/Logo.svg" alt="Logotipo Sempiterno"
@@ -75,12 +75,9 @@
                         </span>
                     </button>
                     <ul class="dropdown-menu dropdown-perfil" id="dropdown-perfil">
-                        <li class="dropdown-item"> <a class="NuevaPestana" href="MiPerfil.php" style="color: black;">Mi
-                                Perfil</a></li>
-                        <li class="dropdown-item"> <a class="NuevaPestana" href="EditarPerfil.php"
-                                style="color: black;">Editar Perfil</a></li>
-                        <li class="dropdown-item"> <a class="NuevaPestana" href="CambiarContraseña.php"
-                                style="color: black;">Cambiar Contraseña</a></li>
+                        <li class="dropdown-item"> <a class="NuevaPestana" href="MiPerfil.php" style="color: black;">Mi Perfil</a></li>
+                        <li class="dropdown-item"> <a class="NuevaPestana" href="EditarPerfil.php" style="color: black;">Editar Perfil</a></li>
+                        <li class="dropdown-item">  <a class="NuevaPestana" href="CambiarContraseña.php" style="color: black;">Cambiar Contraseña</a></li>
                         <li class="dropdown-item">
                             <form method="post" action="Main.php" id="CerrarSesion">
                                 <input type="submit" name="Cerrar_Sesion" value="Cerrar Sesión" class="Cerrar_sesion">
@@ -90,77 +87,58 @@
                 </div>
             </div>
         </nav>
-    </div>
+    </section>
 
     <div class="main">
-        <section id="contenedor-sidebar">
-            <div class="btn-iniciar">
-                <button id="iniciarnuevoforo" onclick="window.location.replace('NuevoForo.php')">Iniciar Nuevo
-                    Foro</button>
-            </div>
-            <div class="secciones">
-
-                <div class="foros" style="color:#CBAC5A">
-                    <i class="fa-solid fa-comments"></i><span id="under_foro">FOROS</span>
-                </div>
-                <a class="NuevaPestana side-nuevapestaña" href="Publicaciones.php">
-                    <div class="publicaciones mt-4">
-                        <i class="fa-solid fa-book-bible "></i><span id="under_pub">PUBLICACIONES</span>
-                    </div>
-                </a>
-                <hr class="separador-secciones">
-                <div class="titulo">
-                    <i class="fa-solid fa-people-roof"></i> <span id="under_grup">GRUPOS</span>
-                </div>
-                <div class="grupos">
-                    <a href=""> <i class="fa-solid fa-circle g1"></i> Danza</a><br>
-                    <a href=""> <i class="fa-solid fa-circle g2"></i> Alabanza</a><br>
-                    <a href=""> <i class="fa-solid fa-circle g3"></i> Limpieza</a><br>
-
-                </div>
-            </div>
-        </section>
-
         <div id="contenido-principal">
-            <section id="FORO">
-                <div class="filtro-foro">
-
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle dropdown-toggle-filtro" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Filtro
-                        </button>
-                        <ul class="dropdown-menu" id="dropdown-perfil">
-                            <li class="dropdown-item">
-                                <form method="post" action="Main.php" id="MasReciente">
-                                    <input type="submit" name="MasReciente" value="Mas Reciente" class="MasReciente">
-                                </form>
-                            </li>
-                            <li class="dropdown-item">
-                                <form method="post" action="Main.php" id="MasAntiguo">
-                                    <input type="submit" name="MasAntiguo" value="Mas Antiguo" class="MasAntiguo">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nuevoforo-btn" onclick="window.location.replace('../Interfaces/NuevoForo.php')">
-                        <i class="fa-solid fa-plus"></i> Nuevo Foro
+            <section id="miPerfil">
+                <div class="Header-MiPerfil">
+                    <div class="SobremiPerfil">
+                        <div class="Nombre-pefil">
+                            <h1>
+                                <a href="Main.php" style="text-decoration: none; color:white; cursor: pointer"><i
+                                        class="fa-solid fa-arrow-left"></i></a>
+                                <?= $nombre ?>
+                                <?= $apellido ?>
+                            </h1>
+                        </div>
+                        <div class="datos_Perfil">
+                            <p>No. Identificación:
+                                <?= $id ?> &nbsp Edad:
+                                <?= $edad ?> &nbsp Teléfono:
+                                <?= $telefono ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="ContenedorForos" id="ContenedorForos">
+                <div class="ContenidoPrincipal">
+                    <div class="Secciones-Perfil">
+                        <button type="button" class="btnMisForos" id="MisForos">Mis Foros</button>
+                        <button type="button" class="btnMisPublicaciones" id="MisPublis">Mis Publicaciones</button>
+                    </div>
+                </div>
+
+
+                <div class="MisForos" id="MisForos_contenido">
                     <?php
-                    obtenerForo();
+                    obtenermisForo();
+                    ?>
+                </div>
+
+
+
+                <div class="MisPublicaciones" id="MisPublicaciones">
+                    <?php
+                    obtenermisPublicaciones();
                     ?>
                 </div>
             </section>
         </div>
     </div>
-    <script src="../js/Funcionalidades-Foro.js"></script>
+    <script src="../js/MiPerfil.js"></script>
     <script>
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
     </script>
 </body>
-
-</html>
