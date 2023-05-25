@@ -65,7 +65,7 @@
                         <div class="asunto-escribir-foro">
                             <label for="asunto-foro" class="label-asunto-editar">Asunto:</label>
                             <input type="text" id="asunto-foro" name="Asunto" value="<?= $res['Asunto'] ?>">
-                            <input type="text" id="id_editar" name="id_editar" value="<?php echo $id ?>">
+                            <input style="display: none;" type="text" id="id_editar" name="id_editar" value="<?php echo $id ?>">
                         </div>
                         <div class="descripcion-escribir-foro">
                             <p class="label-descripcion-editar">Descripción:</p>
