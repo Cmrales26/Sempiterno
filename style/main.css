@@ -704,7 +704,6 @@ span {
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.5rem;
 }
 .Contenidopub-Eliminar h5{
     text-align: center;
@@ -790,6 +789,58 @@ span {
     font-weight: 500;
     margin-top: 1rem;
 }
+#PublicacionEliminar{
+    display: none;
+}
+#image-container{
+    width: 400px;
+}
+#image-container img{
+    width: 100%;
+    border-radius: 10px;
+}
+#ACTUALIZAR-PUBLICACION{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor-actualizar-publicacion{
+    width: 800px;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+#descripcion-publicacion-editar{
+    width: 100%;
+    height: fit-content;
+    background: #F5F5F5;
+    border: 1px solid #1A3467;
+    border-radius: 5px;
+    padding: .4rem 1rem;
+    resize: none;
+    font-family: "Barlow";
+}
+.agregarala-img-publicacion{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.btn-actualizar{
+    margin-top: .5rem;
+    display: flex;
+    justify-content: center;
+}
+.btn-actualizar input{
+    border-radius: 10px;
+    border: none !important;
+    background-color: #4791E0;
+    color: white;
+    padding: .5rem 1rem;
+}
+
+
 
 
 /* ! Visual Queryes responsive */
@@ -820,6 +871,13 @@ span {
     }
     #contenedor-sidebar{
         margin-top:8rem ;
+    }
+    #EditarForo{
+        width: 500px;
+        font-size: 12px;
+    }
+    .editar-foro-main{
+        height: 150vh;
     }
 }
 
@@ -996,6 +1054,9 @@ span {
     .Comentar-comentario form{
         font-size: 12px;
     }
+    .label-fecha-cierre-editar{
+        font-size: x-small;
+    }
 }
 
 @media screen and (max-width: 470px) {
@@ -1041,10 +1102,35 @@ span {
         font-size: 12px;
         margin-right: 5rem;
     }
+    .editar-foro-main{
+        height: 110vh;
+        margin: 2rem;
+    }
+    #Fecha_cierre{
+        width: 30px;
+    }
+    #ACTUALIZAR-PUBLICACION{
+        height: 100vh;
+        margin: 2rem;
+        font-size: x-small;
+    }
+    .volver-foro h3{
+        font-size: 15px !important;
+    }
+    #descripcion-publicacion-editar{
+        height: 100px;
+    }
+    #Eliminar-pub-sect{
+        height: 100vh;
+    }
+    .Contenidopub-Eliminar{
+        width: 100%;
+    }
 
 }
 
 @media screen and (max-width:375px){
+    
     h4{
         font-size: 14px !important;
     }
@@ -1072,9 +1158,21 @@ span {
     .texto_comentario_foro, .comentar_foro{
         font-size: 12px;
     }
+    .label-asunto-editar{
+        font-size: 12px !important;
+    }
+    #Eliminar-foro, #Cancelar-Eliminar-foro, #Eliminar-pub-btn, #Cancelar-Eliminar-pub{
+        font-size: 12px;
+    } 
+    #h3-editarPub, .label-descripcion{
+        font-size: 15px !important;
+    }
 }
 @media screen and (max-width: 320px){
     .texto_comentario_foro{
         width: 66%;
+    }
+    .editar-foro-main{
+        margin: 0;
     }
 }

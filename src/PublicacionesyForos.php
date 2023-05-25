@@ -298,7 +298,7 @@ function obtenermisPublicaciones()
                 echo "                        <li class='dropdown-item'>";
                 echo "                            <form method='post' action='Main.php' id='Editar-pub'>";
                 echo "                                <form method='post' action='Main.php' id='Editar-pub'>";
-                echo "                                    <input type='submit' name='Editar-pub' value='Editar' class='Editar-pub'>";
+                echo "                                    <a href='../src/EditarPublicacion.php?id=" . urldecode($row['ID_PUB']) . "'>Editar Descripción</a>";
                 echo "                                </form>";
                 echo "                            </form>";
                 echo "                        </li>";
@@ -342,7 +342,7 @@ function obtenermisPublicaciones()
                 echo "                        <li class='dropdown-item'>";
                 echo "                            <form method='post' action='Main.php' id='Editar-pub'>";
                 echo "                                <form method='post' action='Main.php' id='Editar-pub'>";
-                echo "                                    <input type='submit' name='Editar-pub' value='Editar' class='Editar-pub'>";
+                echo "                                    <a href='../src/EditarPublicacion.php?id=" . urldecode($row['ID_PUB']) . "'>Editar Descripción</a>";
                 echo "                                </form>";
                 echo "                            </form>";
                 echo "                        </li>";
@@ -367,7 +367,6 @@ function obtenermisPublicaciones()
                 echo "    </div>";
                 echo "    <hr>";
                 echo "</div>";
-                
             }
         }
     } else {

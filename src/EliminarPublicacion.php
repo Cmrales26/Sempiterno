@@ -61,23 +61,12 @@ if (isset($_POST['Eliminar-pub'])) {
                     $query = "SELECT * FROM publicaciones WHERE  ID_PUB = '$id'";
                     $rs = mysqli_query($conexion, $query);
                     $res = mysqli_fetch_array($rs);
-
-                    if (base64_encode($res['Imagen']) !== "") {
-                        echo '<div class="Contenidopub-Eliminar">';
-                        echo '    <h5>';
-                        echo '        ' . $res['Descripcion'];
-                        echo '    </h5>';
-                        echo "    <div class='eliminar-publicacion-imagen'>";
-                        echo "         <img src='data:image/jpg;base64, " . base64_encode($res['Imagen']) . " 'alt=none>";
-                        echo "    </div>";
-                        echo '</div>';
-                    }else{
                         echo '<div class="Contenidopub-Eliminar">';
                         echo '    <h5>';
                         echo '        ' . $res['Descripcion'];
                         echo '    </h5>';
                         echo '</div>';
-                    }
+                        echo '';
 
                 }else{
                     echo '    <h5>';
