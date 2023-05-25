@@ -455,7 +455,7 @@ span {
     font-size: 25px;
     transition: all 0.3s ease-in-out
 }
-.texto_id_foro,.texto_id_pub, .Id_Eliminar-Foro{
+.texto_id_foro,.texto_id_pub, .Id_Eliminar-Foro, .Id_Eliminar-pub{
     display: none !important;
 }
 
@@ -684,13 +684,13 @@ span {
     cursor: pointer;
 }
 
-#Eliminar-foro-sect{
+#Eliminar-foro-sect, #Eliminar-pub-sect{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.cotenerdor-eliminar-foro{
+.cotenerdor-eliminar-foro, .cotenerdor-eliminar-pub{
     border-radius: 10px;
     padding: 2rem;
     height: fit-content;
@@ -698,32 +698,64 @@ span {
     width: 900px;
     max-width: fit-content;
 }
+
+.Contenidopub-Eliminar{
+    width: 600px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.Contenidopub-Eliminar h5{
+    text-align: center;
+}
 .dropdown-item a{
     color: black;
     text-decoration: none !important;
 }
-.header-elemininar-foro h4{
+.header-elemininar-foro h4, .header-elemininar-pub h4{
     text-transform: uppercase;
     color: #1A3467 !important;
 }
 .botoner-alert-eliminar{
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
 }
-#Eliminar-foro, #Cancelar-Eliminar-foro{
+#Eliminar-foro, #Cancelar-Eliminar-foro, #Eliminar-pub-btn, #Cancelar-Eliminar-pub{
     border-radius: 10px;
     color: white;
     padding: .5rem 1.5rem;
     border: none !important;
     background: #EF5F5F;
 }
-#Cancelar-Eliminar-foro{
+#Cancelar-Eliminar-foro, #Cancelar-Eliminar-pub{
     background: #4791E0;
 }
 .card-foro-eliminar{
     border-radius: 10px;
+    padding: 1rem;
+    background-color: #eeeeee;
+    width: 100%;
+}
+.card-pub-eliminar{
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #eeeeee;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.eliminar-publicacion-imagen{
+    display: flex;
+    justify-content: center;
+    width: 400px;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+}
+.eliminar-publicacion-imagen img{
+    border-radius:10px;
     width: 100%;
 }
 .editar-foro-main{

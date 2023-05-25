@@ -151,6 +151,20 @@
     </div>
 
     <script>
+        const showPreview = (event) => {
+            if (event.target.files.length > 0) { // Valida que exista por lo menos una imagen que cargar
+
+                //! event.target.files[0] Me obtiene la informacion de la imagen en la posicion [0]
+
+                let src = URL.createObjectURL(event.target.files[0]); // Le asigno a la variable src los metadatos de la imagen y creo una url temporal
+                const preview_container = document.querySelector(".preview"); // Optengo el contenedor de la imagen
+                preview_container.classList.remove("preview.off"); // Muestro el contenedor de la imagen
+                preview_container.classList.add("preview-on"); // Muestro el contenedor de la imagen
+                const preview = document.getElementById("file-ip-1-preview"); // optengo la etiqueta img donde se cargará la imagen
+                preview.src = src; // al elemento src de la etiqueta img le agrego el link optenido en la variable src
+                preview.style.display = "block"; // a la etiqueta img le asigno un display block
+            }
+        }
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }

@@ -252,7 +252,8 @@ function obtenermisForo()
             echo "</div>";
             echo "</div>";
             echo "</div>";
-        };
+        }
+        ;
     } else {
         echo "
         <div class='NoseEncontro'>
@@ -271,10 +272,10 @@ function obtenermisPublicaciones()
 {
     global $conexion;
     $id = $_SESSION['Identificación'];
-    $query = "SELECT * FROM publicaciones as publicaciones INNER JOIN usuarios as usuarios ON publicaciones.Usuario_id = usuarios.ID_USUARIO WHERE usuarios.ID_USUARIO = $id";
+    $query = "SELECT * FROM publicaciones as publicaciones INNER JOIN usuarios as usuarios ON publicaciones.Usuario_id = usuarios.ID_USUARIO WHERE usuarios.ID_USUARIO = $id and publicaciones.Estado = 1";
     $result = $conexion->query($query);
 
-    $contador = "SELECT COUNT(*) as Conteo FROM publicaciones as publicaciones INNER JOIN usuarios as usuarios ON publicaciones.Usuario_id = usuarios.ID_USUARIO WHERE usuarios.ID_USUARIO = $id";
+    $contador = "SELECT COUNT(*) as Conteo FROM publicaciones as publicaciones INNER JOIN usuarios as usuarios ON publicaciones.Usuario_id = usuarios.ID_USUARIO WHERE usuarios.ID_USUARIO = $id and publicaciones.Estado = 1";
     $rs = $conexion->query($contador);
     $rsaarray = mysqli_fetch_array($rs);
 
@@ -282,104 +283,91 @@ function obtenermisPublicaciones()
 
         while ($row = mysqli_fetch_array($result)) {
             if (base64_encode($row['Imagen']) !== "") {
-                echo
-                    "
-            <div class='card-mispublicaciones'  id=" . $row['ID_PUB'] . ">
-            <div class='info-mispublicacion'>
-                <div class='autor-mispublicacion-opciones'>
-                    <div class='autor-publicacion'>
-                        <h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>
-                    </div>
-                    <div class='Configuración-publi'>
-                                <div class='dropdown-publi'>
-                                    <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'
-                                        aria-expanded='false'>
-                                        <i class='fa-solid fa-gear'></i>
-                                    </button>
-                                    <ul class='dropdown-menu dropdown-publi' id='dropdown-publi'>
-                                        <li class='dropdown-item'>
-                                            <form method='post' action='Main.php' id='Editar-pub'>
-                                                <form method='post' action='Main.php' id='Editar-pub'>
-                                                    <input type='submit' name='Editar-pub' value='Editar'
-                                                        class='Editar-pub'>
-                                                </form>
-                                            </form>
-                                        </li>
-    
-                                        <li class='dropdown-item'>
-                                            <form method='post' action='Main.php' id='Eliminar-pub'>
-                                                <form method='post' action='Main.php' id='Eliminar-pub'>
-                                                    <input type='submit' name='Eliminar-pub' value='Eliminar'
-                                                        class='Eliminar-pub'>
-                                                </form>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                </div>
-                <div class='fecha-publicacion'>Publicado: " . $row['Fecha_pub'] . "</div>
-            </div>
+                echo "<div class='card-mispublicaciones' id=" . $row['ID_PUB'] . ">";
+                echo "    <div class='info-mispublicacion'>";
+                echo "        <div class='autor-mispublicacion-opciones'>";
+                echo "            <div class='autor-publicacion'>";
+                echo "                <h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>";
+                echo "            </div>";
+                echo "            <div class='Configuración-publi'>";
+                echo "                <div class='dropdown-publi'>";
+                echo "                    <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+                echo "                        <i class='fa-solid fa-gear'></i>";
+                echo "                    </button>";
+                echo "                    <ul class='dropdown-menu dropdown-publi' id='dropdown-publi'>";
+                echo "                        <li class='dropdown-item'>";
+                echo "                            <form method='post' action='Main.php' id='Editar-pub'>";
+                echo "                                <form method='post' action='Main.php' id='Editar-pub'>";
+                echo "                                    <input type='submit' name='Editar-pub' value='Editar' class='Editar-pub'>";
+                echo "                                </form>";
+                echo "                            </form>";
+                echo "                        </li>";
+                echo "                        <li class='dropdown-item'>";
+                echo "                            <form method='post' action='Main.php' id='Eliminar-pub'>";
+                echo "                                <form method='post' action='Main.php' id='Eliminar-pub'>";
+                echo "                                      <a href='../src/EliminarPublicacion.php?id=" . urldecode($row['ID_PUB']) . "'>Eliminar</a>";
+                echo "                                </form>";
+                echo "                            </form>";
+                echo "                        </li>";
+                echo "                    </ul>";
+                echo "                </div>";
+                echo "            </div>";
+                echo "        </div>";
+                echo "        <div class='fecha-publicacion'>Publicado: " . $row['Fecha_pub'] . "</div>";
+                echo "    </div>";
+                echo "    <div class='contenido-mispublicacion'>";
+                echo "        <div class='contenido-publicacion-texto'>";
+                echo "            <p>" . $row['Descripcion'] . "</p>";
+                echo "        </div>";
+                echo "        <div class='contenido-publicacion-imagen'>";
+                echo "            <img src='data:image/jpg;base64, " . base64_encode($row['Imagen']) . " 'alt=none>";
+                echo "        </div>";
+                echo "    </div>";
+                echo "    <hr>";
+                echo "</div>";
 
-            <div class'contenido-mispublicacion'>
-                <div class'contenido-publicacion-texto'>
-                    <p>" . $row['Descripcion'] . "</p>
-                </div>
-                <div class='contenido-publicacion-imagen'>
-                    <img src='data:image/jpg;base64, " . base64_encode($row['Imagen']) . " 'alt=none>
-                </div>
-            </div>
-            <hr>
-        </div>
-            ";
             } else {
-                echo
-                    "
-        <div class='card-mispublicaciones'>
-        <div class='info-mispublicacion'>
-            <div class='autor-mispublicacion-opciones'>
-                <div class='autor-publicacion'>
-                    <h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>
-                </div>
-                <div class='Configuración-publi'>
-                            <div class='dropdown-publi'>
-                                <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'
-                                    aria-expanded='false'>
-                                    <i class='fa-solid fa-gear'></i>
-                                </button>
-                                <ul class='dropdown-menu dropdown-publi' id='dropdown-publi'>
-                                    <li class='dropdown-item'>
-                                        <form method='post' action='Main.php' id='Editar-pub'>
-                                            <form method='post' action='Main.php' id='Editar-pub'>
-                                                <input type='submit' name='Editar-pub' value='Editar'
-                                                    class='Editar-pub'>
-                                            </form>
-                                        </form>
-                                    </li>
-
-                                    <li class='dropdown-item'>
-                                        <form method='post' action='Main.php' id='Eliminar-pub'>
-                                            <form method='post' action='Main.php' id='Eliminar-pub'>
-                                                <input type='submit' name='Eliminar-pub' value='Eliminar'
-                                                    class='Eliminar-pub'>
-                                            </form>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-            </div>
-            <div class='fecha-publicacion'>Publicado: " . $row['Fecha_pub'] . "</div>
-        </div>
-
-        <div class'contenido-mispublicacion'>
-            <div class'contenido-mispublicacion-texto'>
-                <p>" . $row['Descripcion'] . "</p>
-            </div>
-        </div>
-        <hr>
-    </div>
-        ";
+                echo "<div class='card-mispublicaciones'>";
+                echo "    <div class='info-mispublicacion'>";
+                echo "        <div class='autor-mispublicacion-opciones'>";
+                echo "            <div class='autor-publicacion'>";
+                echo "                <h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>";
+                echo "            </div>";
+                echo "            <div class='Configuración-publi'>";
+                echo "                <div class='dropdown-publi'>";
+                echo "                    <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+                echo "                        <i class='fa-solid fa-gear'></i>";
+                echo "                    </button>";
+                echo "                    <ul class='dropdown-menu dropdown-publi' id='dropdown-publi'>";
+                echo "                        <li class='dropdown-item'>";
+                echo "                            <form method='post' action='Main.php' id='Editar-pub'>";
+                echo "                                <form method='post' action='Main.php' id='Editar-pub'>";
+                echo "                                    <input type='submit' name='Editar-pub' value='Editar' class='Editar-pub'>";
+                echo "                                </form>";
+                echo "                            </form>";
+                echo "                        </li>";
+                echo "                        <li class='dropdown-item'>";
+                echo "                            <form method='post' action='Main.php' id='Eliminar-pub'>";
+                echo "                                <form method='post' action='Main.php' id='Eliminar-pub'>";
+                echo "                                    <a href='../src/EliminarPublicacion.php?id=" . urldecode($row['ID_PUB']) . "'>Eliminar</a>";
+                echo "                                </form>";
+                echo "                            </form>";
+                echo "                        </li>";
+                echo "                    </ul>";
+                echo "                </div>";
+                echo "            </div>";
+                echo "        </div>";
+                echo "        <div class='fecha-publicacion'>Publicado: " . $row['Fecha_pub'] . "</div>";
+                echo "    </div>";
+                echo "";
+                echo "    <div class='contenido-mispublicacion'>";
+                echo "        <div class='contenido-mispublicacion-texto'>";
+                echo "            <p>" . $row['Descripcion'] . "</p>";
+                echo "        </div>";
+                echo "    </div>";
+                echo "    <hr>";
+                echo "</div>";
+                
             }
         }
     } else {

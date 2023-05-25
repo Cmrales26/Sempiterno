@@ -17,7 +17,7 @@
         crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Eliminar Foro</title>
+    <title>Eliminar pub</title>
     <link rel="stylesheet" href="../style/main.css">
 </head>
 
@@ -26,11 +26,11 @@ require 'Conexion.php';
 
 
 
-if (isset($_POST['Eliminar-Foro'])) {
+if (isset($_POST['Eliminar-pub'])) {
     $id_eliminar = $_POST['Id_Eliminar'];
-    $q = $conexion->query("UPDATE foro SET Estado = 0 WHERE ID_FORO = $id_eliminar");
+    $q = $conexion->query("UPDATE publicaciones SET Estado = 0 WHERE ID_PUB = $id_eliminar");
     if ($q) {
-        header("Location: ../Interfaces/MiPerfil.php ");
+        header("Location: ../Interfaces/MiPerfilPub.php ");
     } else {
         echo "<script> Swal.fire({
             icon: 'error',
@@ -42,36 +42,43 @@ if (isset($_POST['Eliminar-Foro'])) {
 
 
 
-} elseif (isset($_POST['Cancelar-Eliminar-Foro'])) {
-    header("Location: ../Interfaces/MiPerfil.php ");
+} elseif (isset($_POST['Cancelar-Eliminar-pub'])) {
+    header("Location: ../Interfaces/MiPerfilPub.php ");
 }
 ;
 ?>
 
 <body>
-    <section id="Eliminar-foro-sect">
-        <div class="cotenerdor-eliminar-foro">
-            <div class="header-elemininar-foro">
-                <h4>¿Esta Seguro que desea eliminar el siguiente foro?</h4>
+    <section id="Eliminar-pub-sect">
+        <div class="cotenerdor-eliminar-pub">
+            <div class="header-elemininar-pub">
+                <h4>¿Esta Seguro que desea eliminar la Siguiente Publicación?</h4>
             </div>
-            <div class="card-foro-eliminar">
+            <div class="card-pub-eliminar">
                 <?php
                 if ($_REQUEST['id'] != null) {
                     $id = $_REQUEST['id'];
-                    $query = "SELECT * FROM foro WHERE  ID_FORO = '$id'";
+                    $query = "SELECT * FROM publicaciones WHERE  ID_PUB = '$id'";
                     $rs = mysqli_query($conexion, $query);
                     $res = mysqli_fetch_array($rs);
-                    echo '<div class="TituloForo-Eliminar">';
-                    echo '    <h5>';
-                    echo '        ' . $res['Asunto'];
-                    echo '    </h5>';
-                    echo '</div>';
 
-                    echo '<div class="ContenidoForo-Eliminar">';
-                    echo '    <p>';
-                    echo '        ' . $res['Descripcion'];
-                    echo '    </p>';
-                    echo '</div>';
+                    if (base64_encode($res['Imagen']) !== "") {
+                        echo '<div class="Contenidopub-Eliminar">';
+                        echo '    <h5>';
+                        echo '        ' . $res['Descripcion'];
+                        echo '    </h5>';
+                        echo "    <div class='eliminar-publicacion-imagen'>";
+                        echo "         <img src='data:image/jpg;base64, " . base64_encode($res['Imagen']) . " 'alt=none>";
+                        echo "    </div>";
+                        echo '</div>';
+                    }else{
+                        echo '<div class="Contenidopub-Eliminar">';
+                        echo '    <h5>';
+                        echo '        ' . $res['Descripcion'];
+                        echo '    </h5>';
+                        echo '</div>';
+                    }
+
                 }else{
                     echo '    <h5>';
                     echo '        Elemento Eliminado';
@@ -84,11 +91,11 @@ if (isset($_POST['Eliminar-Foro'])) {
 
             <div class="botoner-alert-eliminar">
                 <div class="botoneliminar">
-                    <form action="EliminarForo.php" method="post">
-                        <input type="text" name="Id_Eliminar" class="Id_Eliminar-Foro" value="<?php echo $id ?>">
-                        <button type="submit" id="Eliminar-foro" name="Eliminar-Foro">Eliminar Foro <i
+                    <form action="EliminarPublicacion.php" method="post">
+                        <input type="text" name="Id_Eliminar" class="Id_Eliminar-pub" value="<?php echo $id ?>">
+                        <button type="submit" id="Eliminar-pub-btn" name="Eliminar-pub">Eliminar <i
                                 class="fa-solid fa-trash"></i></button>
-                        <button id="Cancelar-Eliminar-foro" name="Cancelar-Eliminar-Foro">Cancelar <i
+                        <button id="Cancelar-Eliminar-pub" name="Cancelar-Eliminar-pub">Cancelar <i
                                 class="fa-solid fa-ban"></i></button>
                     </form>
                 </div>
