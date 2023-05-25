@@ -8,6 +8,12 @@
     margin-left: 0;
     width: 100%;
 }
+.dropdown-publi .dropdown-toggle::after, .dropdown-foro .dropdown-toggle::after{
+    display: none;
+}
+.dropdown-publi .dropdown-toggle,  .dropdown-foro .dropdown-toggle{
+    font-size: 20px;
+}
 @media screen and (max-width: 768px){
     #contenido-principal{
         margin-top: 7.3rem;

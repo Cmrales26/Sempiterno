@@ -219,54 +219,40 @@ function obtenermisForo()
 
     if ($rsarray['Conteo'] > 0) {
         while ($row = mysqli_fetch_array($result)) {
-            echo "
-            <div class='card-misforos' id=" . $row['ID_FORO'] . ">
-                        <div class='info-misforo'>
-                            <div class='Tematica-misforo'>
-                                <div class='header-misforo'>
-                                    <div class='Autor-misforo'>
-                                        <h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>
-                                    </div>
-                                    <div class='Configuración-foro'>
-                                        <div class='dropdown-foro'>
-                                            <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'
-                                                aria-expanded='false'>
-                                                <i class='fa-solid fa-ellipsis'></i>
-                                            </button>
-                                            <ul class='dropdown-menu dropdown-foro' id='dropdown-foro'>
-                                                <li class='dropdown-item'>
-                                                    <form method='post' action='Main.php' id='Editar'>
-                                                        <form method='post' action='Main.php' id='Editar'>
-                                                            <input type='submit' name='Editar' value='Editar'
-                                                                class='Editar'>
-                                                        </form>
-                                                    </form>
-                                                </li>
-
-                                                <li class='dropdown-item'>
-                                                    <form method='post' action='Main.php' id='Eliminar'>
-                                                        <form method='post' action='Main.php' id='Eliminar'>
-                                                            <input type='submit' name='Eliminar' value='Eliminar'
-                                                                class='Eliminar'>
-                                                        </form>
-                                                    </form>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h5>" . $row['Asunto'] . "</h5>
-                                <p>" . $row['Descripcion'] . "</p>
-                            </div>
-                            <hr>
-                            <div class='fecha-misforo'>
-                                Abrió el: " . $row["Fecha_Pub_Foro"] . " -  Cerrará el: " . $row["Cierre_foro"] . "
-                            </div>
-                        </div>
-                    </div>
-
-            ";
-        }
+            echo "<div class='card-misforos' id=" . $row['ID_FORO'] . ">";
+            echo "<div class='info-misforo'>";
+            echo "<div class='Tematica-misforo'>";
+            echo "<div class='header-misforo'>";
+            echo "<div class='Autor-misforo'>";
+            echo "<h3>" . $row['Nombre'] . " " . $row['Apellido'] . "</h3>";
+            echo "</div>";
+            echo "<div class='Configuración-foro'>";
+            echo "<div class='dropdown-foro'>";
+            echo "<button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+            echo "<i class='fa-solid fa-gear'></i>";
+            echo "</button>";
+            echo "<ul class='dropdown-menu dropdown-foro' id='dropdown-foro'>";
+            echo "<li class='dropdown-item'>";
+            echo "<a href='../src/EditarForo.php?id=" . urldecode($row['ID_FORO']) . "'>Editar</a>";
+            echo "</li>";
+            echo "<li class='dropdown-item'>";
+            echo "<a href='../src/EliminarForo.php?id=" . urldecode($row['ID_FORO']) . "'>Eliminar</a>";
+            echo "</form>";
+            echo "</li>";
+            echo "</ul>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+            echo "<h5>" . $row['Asunto'] . "</h5>";
+            echo "<p>" . $row['Descripcion'] . "</p>";
+            echo "</div>";
+            echo "<hr>";
+            echo "<div class='fecha-misforo'>";
+            echo "Abrió el: " . $row["Fecha_Pub_Foro"] . " - Cerrará el: " . $row["Cierre_foro"];
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+        };
     } else {
         echo "
         <div class='NoseEncontro'>
@@ -308,7 +294,7 @@ function obtenermisPublicaciones()
                                 <div class='dropdown-publi'>
                                     <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'
                                         aria-expanded='false'>
-                                        <i class='fa-solid fa-ellipsis'></i>
+                                        <i class='fa-solid fa-gear'></i>
                                     </button>
                                     <ul class='dropdown-menu dropdown-publi' id='dropdown-publi'>
                                         <li class='dropdown-item'>
@@ -344,14 +330,6 @@ function obtenermisPublicaciones()
                 </div>
             </div>
             <hr>
-            <div class='acciones-publicaciones'>
-                <div class='like-publicacion'>
-                    <i class='fa-regular fa-heart'></i>
-                </div>
-                <div class='comentar-publicacion'>
-                    <i class='fa-regular fa-comment'></i>
-                </div>
-            </div>
         </div>
             ";
             } else {
@@ -367,7 +345,7 @@ function obtenermisPublicaciones()
                             <div class='dropdown-publi'>
                                 <button class='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'
                                     aria-expanded='false'>
-                                    <i class='fa-solid fa-ellipsis'></i>
+                                    <i class='fa-solid fa-gear'></i>
                                 </button>
                                 <ul class='dropdown-menu dropdown-publi' id='dropdown-publi'>
                                     <li class='dropdown-item'>
@@ -400,14 +378,6 @@ function obtenermisPublicaciones()
             </div>
         </div>
         <hr>
-        <div class='acciones-publicaciones'>
-            <div class='like-publicacion'>
-                <i class='fa-regular fa-heart'></i>
-            </div>
-            <div class='comentar-publicacion'>
-                <i class='fa-regular fa-comment'></i>
-            </div>
-        </div>
     </div>
         ";
             }
