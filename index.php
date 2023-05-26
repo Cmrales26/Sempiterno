@@ -57,7 +57,7 @@
                             <input type="submit" value="Ingresar" class="ingresar" name="ingresar">
                         </div>
                         <div class="invitado">
-                            <input type="button" value="Entrar Como invitado" class="e-invitado">
+                            <input type="button" value="Entrar Como invitado" class="e-invitado" onclick="window.location.replace('./Interfaces/Invitados.html')">
                         </div>
                     </div>
                     <div class="crear-cuenta">

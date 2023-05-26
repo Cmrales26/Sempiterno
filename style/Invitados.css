@@ -1,20 +1,19 @@
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto+Slab:wght@200;300;500&display=swap');
 
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   .grid-c {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 7px;
-    margin-bottom: 3%;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
   }
 
-  html{
+  html {
     scroll-behavior: smooth;
-  }
-
-  .Logo {
-    text-align: left;
-    margin-left: 10%;
-    margin-top: 7%;
   }
 
   #ParrafOne {
@@ -23,12 +22,6 @@
 
   #Sempiterno {
     color: #e6c05a;
-  }
-
-  .Items {
-    text-align: right;
-    margin-top: 7%;
-    margin-left: 39%;
   }
 
   nav ul {
@@ -44,7 +37,7 @@
   nav a.Circle {
     background-color: #1A3467;
     color: white;
-    border-radius: 40px;
+    border-radius: 10px;
   }
 
   nav a {
@@ -52,7 +45,7 @@
     color: #1A3467;
     text-decoration: none;
     padding: 10px;
-    border-radius: 40px;
+    border-radius: 10px;
   }
 
   nav a:hover {
@@ -60,9 +53,6 @@
     ;
   }
 
-  /* .Presentacion{
-    background-color: #4791E0;
-} */
   #title {
     color: #1A3467;
     font-family: 'Poppins', sans-serif;
@@ -75,24 +65,16 @@
   }
 
   .contenedor-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 7px;
     background-color: #4791E0;
-    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
   }
 
   .Intro {
-    text-align: left;
-    margin-left: 60px;
-    margin-top: 140px;
-    margin-right: 90px;
-  }
-
-  .Imagen {
-    margin-left: 38px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    width: 30%;
   }
 
   #Pray {
@@ -100,13 +82,18 @@
   }
 
   .Horario {
-    margin-left: 2%;
-    padding: 3%;
+    padding-top: 2rem;
+    margin: 0 auto;
+    width: 70%;
+  }
+  .Horario img{
+    width: 100%;
   }
 
   .Parrafo {
     padding: 5%;
     align-self: center;
+    width: 50%;
   }
 
   .Funcion {
@@ -118,16 +105,18 @@
   }
 
   .imagenvista {
-    margin-top: 10%;
-    margin-bottom: 10%;
-    margin-right: 20px;
+    padding: 3rem;
+    width: 50%;
+  }
+  .imagenvista img{
+    width: 100%;
   }
 
   .div-cont {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 7px;
-    margin-top: 70px;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
 
   .Encuentros {
@@ -324,16 +313,8 @@
       width: 100%;
     }
 
-    .Items {
-      margin-left: 20%;
-    }
-
     .Contacto {
       align-self: center;
-    }
-
-    .imagenvista {
-      width: 500px;
     }
 
     .imagenvista img {
@@ -422,80 +403,130 @@
     }
   }
 
-  @media screen and (max-width:425px) {
-    .Imagen{
+  @media screen and (max-width:520px) {
+    .Imagen {
       display: none;
     }
-    .grid-c{
+
+    .grid-c {
       display: block;
     }
-    .Items{
-      margin: 0%;
+
+    .Items {
+      margin-top: 1rem;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      margin-left: 0%
     }
-    .Intro{
+    .Logo{
+      width: 150px;
+    }
+    .Logo img{
+      width: 100%;
+    }
+    .ol, ul{
+      padding-left: 0rem !important;
+    }
+    nav li{
+      margin-right: 0%;
+    }
+
+    .Intro {
       text-align: center;
       margin: 0%;
-    }
-   #title{
-    font-size: 15px;
-   }
-   p{
-    font-size:10px ;
-   }
-   .div-cont{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 7%;
-   }
-   .col{
-    margin: auto;
-   }
-   .containerg{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-   }
-   .contenedor-grid{
-    display: flex;
-    /* justify-content: center; */
-    flex-direction: column;
-     padding: 6%;     
-   }
-   .Parrafo{
       width: 100%;
-   }
-   .Logo{
-    width: 50px;
-    height: 50px;
-    margin-bottom: .5rem;
-   }
-   .redes-sociales{
-    font-size: 15px;
-   }
-   h2{
-    font-size: 20px;
-   }
-   .redes-sociales:last-child{
-    margin-bottom:0px;
-   }
+    }
 
+    #title {
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 10px;
+    }
+
+    .div-cont {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 7%;
+    }
+
+    .col {
+      margin: auto;
+    }
+
+    .containerg {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .contenedor-grid {
+      display: flex;
+      /* justify-content: center; */
+      flex-direction: column;
+      padding: 6%;
+    }
+
+    .Parrafo {
+      width: 100%;
+    }
+
+    .redes-sociales {
+      font-size: 15px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .redes-sociales:last-child {
+      margin-bottom: 0px;
+    }
+    .Horario{
+      width: 90%;
+      padding: .5rem;
+      padding-bottom: .5rem;
+    }
+    .div-cont{
+      margin-top: 2rem;
+    }
+    .imagenvista{
+      width: 110%;
+      margin-left: 0%;
+    }
+    .social-icon-last{
+      margin-bottom: 0px;
+    }
+    .Tarjetas {
+      padding: 3.5rem;
+    }
   }
-  @media screen and (max-width:320px){
+
+  @media screen and (max-width:320px) {
     ul>li {
       font-size: 10px;
     }
-    #title{
+
+    #title {
       font-size: 17px;
     }
-    #Tartitle{
+
+    #Tartitle {
       font-size: 17px;
     }
-    .Ubicacion h2{
+
+    .Ubicacion h2 {
       font-size: 17px;
     }
-    .Contacto h2{
+
+    .Contacto h2 {
       font-size: 17px;
+    }
+    .imagenvista{
+      width: 150%;
     }
 
   }
