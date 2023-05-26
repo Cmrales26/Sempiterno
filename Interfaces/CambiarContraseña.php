@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Document</title>
+    <title>Cambiar Contraseña</title>
 </head>
 
 <body>

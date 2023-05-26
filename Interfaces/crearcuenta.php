@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../style/crear.css">
     <link rel="shortcut icon" href="../img/Imagotipo.svg" type="image/x-icon">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Iniciar Sesión</title>
+    <title>Crear Cuenta</title>
 </head>
 
 <body>
