@@ -122,6 +122,9 @@
   .Encuentros {
     padding: 4%;
   }
+  .card-title{
+    color: white !important;
+  }
 
   #Tartitle {
     color: #1A3467;
