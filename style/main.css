@@ -31,6 +31,10 @@ body::-webkit-scrollbar-thumb {
 .Logo_mobile{
     display: none;
 }
+.logo img{
+    width: 40% !important;
+    margin-left: 1.5rem;
+}
 
 #contenedor-navbar {
     position: fixed;
@@ -889,7 +893,7 @@ span {
     }
 
     .logo {
-        width: 30%;
+        width: 55%;
     }
 
     .logo img {
@@ -1061,7 +1065,7 @@ span {
 
 @media screen and (max-width: 470px) {
     .logo {
-        width: 13%;
+        width: 25%;
     }
     .Logo_mobile{
         display: block;
@@ -1130,7 +1134,9 @@ span {
 }
 
 @media screen and (max-width:375px){
-    
+    .logo {
+        width: 30%;
+    }
     h4{
         font-size: 14px !important;
     }
@@ -1169,6 +1175,9 @@ span {
     }
 }
 @media screen and (max-width: 320px){
+    .logo {
+        width: 35%;
+    }
     .texto_comentario_foro{
         width: 66%;
     }
