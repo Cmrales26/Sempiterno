@@ -63,9 +63,9 @@
                         width="50%"></a>
             </div>
             <div class="config">
-                <div class="icon-notificacion">
+                <!-- <div class="icon-notificacion">
                     <a href="" style="text-decoration: none; color: #1a3467;"><i class="fa-solid fa-bell"></i></a>
-                </div>
+                </div> -->
                 <div class="dropdown-perfil">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user"></i>
@@ -109,7 +109,10 @@
                     </div>
                 </a>
                 <hr class="separador-secciones">
-                <div class="titulo">
+
+                <!-- GRUPOS  -->
+
+                <!-- <div class="titulo">
                     <i class="fa-solid fa-people-roof"></i> <span id="under_grup">GRUPOS</span>
                 </div>
                 <div class="grupos">
@@ -117,7 +120,8 @@
                     <a href=""> <i class="fa-solid fa-circle g2"></i> Alabanza</a><br>
                     <a href=""> <i class="fa-solid fa-circle g3"></i> Limpieza</a><br>
 
-                </div>
+                </div> -->
+                
             </div>
         </section>
 
